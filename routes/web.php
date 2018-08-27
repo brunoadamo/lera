@@ -22,3 +22,16 @@ Route::get('/narratives', function () {
 });
 
 Route::resource('narratives','NarrativeController');
+
+Auth::routes();
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    
+    Route::resource('/', 'NarrativeController');
+    Route::resource('/narratives', 'NarrativeController');
+    Route::put('/narratives/{narrative}/publish', 'NarrativeController@publish')->middleware('admin');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

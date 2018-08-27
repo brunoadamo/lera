@@ -1,3 +1,9 @@
+/* HEADER */
+.contenthead{
+    min-height: 100px;
+}
+
+
 .post-list .featured{
     background-repeat: no-repeat;
     background-size: cover;

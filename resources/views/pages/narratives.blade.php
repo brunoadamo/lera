@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-sm-12 mx-auto">
 
-                @foreach($narratives as $key => $narrative)
+                @forelse($narratives as $key => $narrative)
                 <div class="row">
                     <div class="col-sm-4 featured" style="background-image: url('{{{ URL::asset('image/banner/2.jpg')}}}')"> </div>
                     <div class="col-sm-8">
@@ -28,7 +28,13 @@
                         
                 </div>
                 <hr>
-                @endforeach
+                @empty
+                    <div class="row">
+                        <div class="col-sm-12 mx-auto">
+                            <p>Nenhuma narrativa cadastrada</p>
+                        </div>
+                    </div>
+                @endforelse
                 
                 <!-- Pager -->
                 <div class="clearfix">
