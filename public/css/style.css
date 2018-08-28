@@ -1,11 +1,27 @@
 /* HEADER */
 .contenthead{
-    min-height: 100px;
+    min-height: 70px;
+    background: #000 !important;
+}
+.contenthead.is-fixed{
+    background: #000 !important;
 }
 
+/* FOOTER */
+footer{
+    background: #3c3c3c;
+}
+
+/* FONT */
+.floating-label-form-group {
+    font-size: 11px;
+}
+
+/* POST */
 
 .post-list .featured{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    min-height: 250px
 }
