@@ -14,7 +14,7 @@
                     <div class="col-sm-10 mx-auto featured" style="background-image: url('{{{ URL::asset('image/banner/2.jpg')}}}')"> </div>
                     <div class="col-sm-10 mx-auto">
                         <div class="post-preview">
-                            <a href="post.html">
+                            <a href="/narrative/{{$narrative->id}}">
                                 <h2 class="post-title">
                                     {{$narrative->title}}
                                 </h2>

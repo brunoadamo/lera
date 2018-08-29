@@ -17,16 +17,19 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('pages.home');
 });
+
+// narratives-------------
 Route::get('/narratives', function () {
     return view('pages.narratives');
 });
+Route::get('/narrative/{narrative}', 'NarrativeController@single'); //singl page post
+// narratives-------------
+
+
 
 Route::resource('narratives','NarrativeController');
 
-Auth::routes();
-
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-    
     Route::resource('/', 'NarrativeController');
     Route::resource('/narratives', 'NarrativeController');
     Route::put('/narratives/{narrative}/publish', 'NarrativeController@publish')->middleware('admin');
@@ -34,4 +37,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 Auth::routes();
 
+Route::resource('/profile', 'HomeController@index')->middleware('admin');
 Route::get('/home', 'HomeController@index')->name('home');

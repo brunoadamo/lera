@@ -27,6 +27,7 @@ class NarrativeTableSeeder extends Seeder
                 'act_n' => 3,
                 'clue' => $faker->sentence,
                 'content' => $faker->paragraph,
+                'picture' => 'example.jpg',
                 'user_id' => 1,
                 'status' => 1,
             ]);
