@@ -6,9 +6,6 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 mx-auto">
-
-                <h1 class="text-center">{{ __('Narrativas') }}</h1><br>
-
                 @forelse($narratives as $key => $narrative)
                 <div class="row">
                     <div class="col-sm-10 mx-auto featured" style="background-image: url('{{{ asset(@$narrative->folder  . '' . @$narrative->picture)}}}')"> </div>
