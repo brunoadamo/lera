@@ -1,3 +1,7 @@
+body{
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
 /* HEADER */
 .contenthead{
     min-height: 70px;
@@ -6,6 +10,8 @@
 .contenthead.is-fixed{
     background: #000 !important;
 }
+
+
 
 /* FOOTER */
 footer{
@@ -17,6 +23,11 @@ footer{
     font-size: 11px;
 }
 
+/* COMMENTS */
+.comments, .comments h5{
+    font-size: 13px;
+}
+
 /* POST */
 
 .post-list .featured{
@@ -24,4 +35,39 @@ footer{
     background-size: cover;
     background-position: center center;
     min-height: 250px
+}
+.post-list .post-title{
+    font-size: 25px !important;
+}
+.post-list .post-subtitle{
+    font-size: 1em !important;
+}
+.post-list .post-meta{
+    font-size: 12px !important;
+}
+
+
+.narrativehead h1{
+    font-size: 30px !important;
+}
+.narrativehead span{
+    font-size: 18px !important;
+}
+.narrative-single{
+    text-align: justify;
+    font-size: 15px;
+}
+
+/* LINKS ----------- */
+.page-link{
+    color: #3c3c3c;
+}
+.page-link:hover{
+    color: #3c3c3c;
+    opacity: 0.8;
+}
+
+/* SUMMERNOTE */
+.note-editor .btn{
+    padding: 2px 5px !important;
 }

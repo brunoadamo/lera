@@ -21,7 +21,8 @@ class CreateNarrativesTable extends Migration
             $table->integer('act_n');
             $table->longText('clue');
             $table->longText('content');
-            $table->string('picture');
+            $table->string('folder')->nullable();
+            $table->string('picture')->nullable();
             $table->integer('user_id');
             $table->integer('status')->default('1');;
             $table->boolean('is_published')->default('1');

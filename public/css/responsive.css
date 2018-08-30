@@ -1,8 +1,36 @@
-@media only screen and (min-width: 480px) { 
+@media only screen and (max-width: 479px) { 
     
 }
-@media only screen and (min-width: 600px) { 
+@media only screen and (min-width: 480px) { 
 
+    
+    .narrativehead h1{
+        font-size: 32px !important;
+    }
+    .narrativehead span{
+        font-size: 20px !important;
+    }
+
+    .post-list .post-title{
+        font-size: 30px !important;
+    }
+    .post-list .post-subtitle{
+        font-size: 1.2em !important;
+    }
+    .post-list .post-meta{
+        font-size: 15px !important;
+    }
+}
+@media only screen and (min-width: 600px) { 
+    .narrativehead h1{
+        font-size: 55px !important;
+    }
+    .narrativehead span{
+        font-size: 24px !important;
+    }
+    .narrative-single{
+        font-size: 20px !important;
+    }
 }
 @media only screen and (min-width: 768px) { 
 

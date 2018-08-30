@@ -10,23 +10,23 @@ class NarrativeController extends Controller
 {
 
     //fronend-------------------------
-    public function index()
+    public function index(Request $request)
     {
-        $narratives = Narrative::orderBy('title', 'desc')->leftJoin('users', 'users.id', '=', 'narratives.user_id')->select('narratives.*', 'users.id', 'users.name', 'users.alias')->get();
+        $narratives = Narrative::when($request->search, function($query) use($request) {
+                        $search = $request->search;
+                        
+                        return $query->where('title', 'like', "%$search%")
+                            ->orWhere('content', 'like', "%$search%");
+                    })->with('rates', 'kind', 'user')
+                    ->withCount('comments')
+                    ->simplePaginate(5);
 
-        return view('pages.narratives', ['narratives' => $narratives]);
-        // return Narrative::all();
+        return view('pages.narratives', compact('narratives'));
     }
-
-    // public function single(Narrative $narrative)
-    // {
-    //     $narrative = $narrative->user();
-
-    //     return view('pages.narrative', ['narrative' => $narrative]);
-    // }
+    
     public function single(Narrative $narrative)
     {
-        $narrative = $narrative->load(['user']);
+        $narrative = $narrative->load(['user', 'comments', 'rates', 'kind']);
 
         return view('pages.narrative', compact('narrative'));
     }
@@ -44,7 +44,7 @@ class NarrativeController extends Controller
         $file_name = 'null';
 
         if (Input::file('picture')->isValid()) {
-            $path = public_path('uploads/narrative/cover');
+            $path = public_path('uploads/narrative/cover/');
             $extension = Input::file('picture')->getClientOriginalExtension();
             $file_name = uniqid().'.'.$extension;
 
