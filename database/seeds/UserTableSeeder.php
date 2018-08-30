@@ -28,7 +28,7 @@ class UserTableSeeder extends Seeder
             'email' => 'bruno@gmail.com',
             'password' => $password,
             'folder' => 'uploads/user/profile/',
-            'picture' => NULL,
+            'picture' => 'user.png',
             'alias' => 'The Master',
             'status' => 1,
         ]);
@@ -40,7 +40,7 @@ class UserTableSeeder extends Seeder
                 'email' => $faker->email,
                 'password' => $password,
                 'folder' => 'uploads/user/profile/',
-                'picture' => NULL,
+                'picture' => 'user.png',
                 'alias' => $faker->name,
                 'status' => 1,
             ]);
