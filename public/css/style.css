@@ -1,5 +1,12 @@
 body{
     font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 15px;
+}
+h1{
+    font-size: 1.8rem;
+}
+p {
+    margin: 15px 0;
 }
 
 /* HEADER */
@@ -12,6 +19,11 @@ body{
 }
 
 
+/* HOME */
+.homecontent a{
+    color:#fff !important;
+}
+
 
 /* FOOTER */
 footer{
@@ -22,7 +34,9 @@ footer{
 .floating-label-form-group {
     font-size: 11px;
 }
-
+.custom-file-label{
+    font-size:15px;
+}
 /* COMMENTS */
 .comments, .comments h5{
     font-size: 13px;
@@ -58,7 +72,19 @@ footer{
     font-size: 15px;
 }
 
+/* FORM */
+
+.btn-link{
+    padding: 0;
+    color: #ffb007;
+}
+
+
+
 /* LINKS ----------- */
+a:focus, a:hover {
+    color: #ffb007;
+}
 .page-link{
     color: #3c3c3c;
 }
@@ -67,7 +93,26 @@ footer{
     opacity: 0.8;
 }
 
+/* PROFILE */
+.profile-content .post-list .featured{
+    min-height: 100px;
+}
+.profile-content .post-preview p{
+    margin: 0 8px;
+}
+
+
+/* PORTFOLIO */
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
 /* SUMMERNOTE */
 .note-editor .btn{
     padding: 2px 5px !important;
+}
+
+/* CORES */
+.cl-primary{
+  color: #ffb007 !important;
 }

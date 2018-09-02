@@ -42,7 +42,7 @@
 
 <!-- include summernote css/js-->
 <script src="{{{ asset('lib/summernote-master/dist/summernote-bs4.js')}}}"></script>
-<script src="{{{ asset('lib/summernote-master/dist/lang/summernote-pt-BR.min.js')}}}"></script>
+<script src="{{{ asset('lib/summernote-master/dist/lang/summernote-pt-BR.js')}}}"></script>
 
 <!-- Custom scripts for this template -->
 <script src="{{{ asset('lib/template/startbootstrap-clean-blog/js/clean-blog.min.js')}}}"></script>

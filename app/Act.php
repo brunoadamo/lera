@@ -14,4 +14,9 @@ class Act extends Model
     protected $fillable = [
         'content', 'narrative_id', 'user_id', 'status',
     ];
+
+    public function narratives()
+    {
+        return $this->hasMany(Narrative::class);
+    }
 }

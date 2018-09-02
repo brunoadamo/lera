@@ -9,12 +9,11 @@
             <div class="card-body">
                 <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}" enctype="multipart/form-data">
                     @csrf
-                  
-                    <div class="form-group">
-                        <div class="form-group floating-label-form-group controls">
-                            <label for="picture">{{ __('Foto de Perfil') }}</label>
-                            <input id="picture" type="file" placeholder="{{ __('Nome') }}" class="form-control{{ $errors->has('picture') ? ' is-invalid' : '' }}" name="picture" value="{{ old('picture') }}" required autofocus>
 
+                    <div class="form-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="picture" name="picture">
+                            <label class="custom-file-label" for="picture">Escolha sua foto...</label>
                             @if ($errors->has('picture'))
                                 <p class="help-block text-danger">{{ $errors->first('picture') }}</p>
                             @endif
@@ -79,7 +78,7 @@
 
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-warning">
                                 {{ __('Cadastrar') }}
                             </button>
                         </div>

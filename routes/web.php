@@ -38,11 +38,12 @@ Route::resource('narratives','NarrativeController');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     // Route::resource('/', 'NarrativeController');
-    // Route::resource('/narratives', 'NarrativeController');
+    Route::resource('/narratives', 'NarrativeController');
     // Route::put('/narratives/{narrative}/publish', 'NarrativeController@publish')->middleware('admin');
 });
 
-Auth::routes();
 
-Route::resource('/profile', 'HomeController@index')->middleware('admin');
+Route::get('/profile', 'ProfileController@index')->middleware('auth');
+
+Auth::routes();
 

@@ -24,15 +24,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $narratives = Narrative::when($request->search, function($query) use($request) {
-            $search = $request->search;
             
-            return $query->where('title', 'like', "%$search%")
-                ->orWhere('content', 'like', "%$search%");
-        })->with('rates', 'kind', 'user')
-        ->withCount('comments')
-        ->simplePaginate(5);
-
-return view('pages.home', compact('narratives'));
+        return view('pages.home');
     }
 }

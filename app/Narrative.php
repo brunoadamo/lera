@@ -29,6 +29,10 @@ class Narrative extends Model
     {
         return $this->hasMany(Rate::class);
     }
+    public function acts()
+    {
+        return $this->hasMany(Act::class);
+    }
 }
 
 

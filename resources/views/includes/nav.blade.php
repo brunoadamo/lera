@@ -19,6 +19,9 @@
                     <a class="nav-link" href="/narratives">Narrativas</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/portfolio">Portfólio</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/login">Login</a>
                 </li>
             </ul>

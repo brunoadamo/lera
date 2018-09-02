@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Narrative;
+use App\Kind;
 
 class NarrativeController extends Controller
 {
@@ -30,6 +31,17 @@ class NarrativeController extends Controller
 
         return view('pages.narrative', compact('narrative'));
     }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $kinds = Kind::pluck('title', 'id')->all();
+
+        return view('admin.narratives.create', compact('kinds'));
+    }
     //fronend-------------------------
 
 
@@ -40,7 +52,7 @@ class NarrativeController extends Controller
      * @return \App\Narrative
      */
 
-    protected function create(array $data){
+    protected function store(array $data){
         $file_name = 'null';
 
         if (Input::file('picture')->isValid()) {
@@ -85,12 +97,12 @@ class NarrativeController extends Controller
         return $narrative;
     }
 
-    public function store(Request $request)
-    {
-        $narrative = Narrative::create($request->all());
+    // public function store(Request $request)
+    // {
+    //     $narrative = Narrative::create($request->all());
 
-        return response()->json($narrative, 201);
-    }
+    //     return response()->json($narrative, 201);
+    // }
 
     public function update(Request $request, Narrative $narrative)
     {
