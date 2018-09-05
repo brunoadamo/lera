@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Narrative;
 use App\Kind;
 
-class NarrativeController extends Controller
+class PortfolioController extends Controller
 {
 
     //fronend-------------------------
@@ -18,12 +18,13 @@ class NarrativeController extends Controller
                         
                         return $query->where('title', 'like', "%$search%")
                             ->orWhere('content', 'like', "%$search%");
-                    })->where('is_published', false)
+                    })->where('is_published', true)
                     ->with('rates', 'kind', 'user')
+                    ->withCount('acts')
                     ->withCount('comments')
                     ->simplePaginate(5);
 
-        return view('pages.narratives', compact('narratives'));
+        return view('pages.portfolio', compact('narratives'));
     }
     
     public function single(Narrative $narrative)

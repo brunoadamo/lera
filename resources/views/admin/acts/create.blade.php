@@ -4,13 +4,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <h1 class="text-center">{{ __('Cadastrar Narrativas') }}</h1>
+            <h1 class="text-center">{{ __('Cadastrar Ato') }}</h1>
 
             <div class="card-body">
                 <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}" enctype="multipart/form-data">
                     @csrf
                   
-                    @include('admin.narratives._form')
+                    @include('admin.acts._form')
 
                     <div class="form-group row mb-0">
                         <div class="col-sm-12">

@@ -25,6 +25,28 @@ class HomeController extends Controller
     public function index(Request $request)
     {
             
-        return view('pages.home');
+        $narratives = Narrative::when($request->search, function($query) use($request) {
+            $search = $request->search;
+            
+            return $query->where(['title', 'like', "%$search%"])
+                ->orWhere('content', 'like', "%$search%");
+        })->where('is_published', false)
+        ->with('rates', 'kind', 'user')
+        ->withCount('acts')
+        ->withCount('comments')
+        ->simplePaginate(6);
+
+        $narratives_full = Narrative::when($request->search, function($query) use($request) {
+            $search = $request->search;
+            
+            return $query->where(['title', 'like', "%$search%"])
+                ->orWhere('content', 'like', "%$search%");
+        })->where('is_published', true)
+        ->with('rates', 'kind', 'user')
+        ->withCount('acts')
+        ->withCount('comments')
+        ->simplePaginate(8);
+
+        return view('pages.home', compact('narratives', 'narratives_full'));
     }
 }

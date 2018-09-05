@@ -30,20 +30,19 @@ Route::get('/narrative/{narrative}', 'NarrativeController@single'); //singl page
 // narratives-------------
 
 // narratives-------------
-Route::get('/create', function () {
-    return view('admin.narratives.create');
-});
 
 Route::resource('narratives','NarrativeController');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     // Route::resource('/', 'NarrativeController');
     Route::resource('/narratives', 'NarrativeController');
+    Route::resource('/acts', 'ActController');
     // Route::put('/narratives/{narrative}/publish', 'NarrativeController@publish')->middleware('admin');
 });
 
 
 Route::get('/profile', 'ProfileController@index')->middleware('auth');
+Route::get('/portfolio', 'PortfolioController@index');
 
 Auth::routes();
 

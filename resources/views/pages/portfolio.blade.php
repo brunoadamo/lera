@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-sm-12 mx-auto">
 
-                <h1 class="text-center">{{ __('Narrativas') }}</h1><br>
+                <h1 class="text-center">{{ __('Portfólio') }}</h1><br>
 
                 @forelse($narratives as $key => $narrative)
                 <div class="row">
@@ -26,7 +26,7 @@
                                 <a href="#">{{$narrative->user->alias}}</a>
                                 em {{$narrative->created_at->format('d/m/Y')}}
                             
-                                <small><strong> | Colaboradores:</strong> </small>    
+                                <small>|  <strong>{{ $narrative->acts_count }}</strong> Atos</small>    
                                 <small class="float-right"><strong>Comentários:</strong> {{ $narrative->comments_count }}</small>    
                             </p>
                             

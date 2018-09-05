@@ -8,10 +8,13 @@ h1{
 p {
     margin: 15px 0;
 }
+a, p a{
+    text-decoration: none;
+}
 
 /* HEADER */
 .contenthead{
-    min-height: 70px;
+    min-height: 57px;
     background: #000 !important;
 }
 .contenthead.is-fixed{
@@ -43,7 +46,10 @@ footer{
 }
 
 /* POST */
-
+.post-list-home .featured{
+    height: 100px;
+    min-height: 0 !important;
+}
 .post-list .featured{
     background-repeat: no-repeat;
     background-size: cover;
@@ -73,12 +79,13 @@ footer{
 }
 
 /* FORM */
-
 .btn-link{
     padding: 0;
     color: #ffb007;
 }
-
+form .form-group:first-child .floating-label-form-group{
+    border-top: 0 !important;
+}
 
 
 /* LINKS ----------- */
@@ -101,6 +108,20 @@ a:focus, a:hover {
     margin: 0 8px;
 }
 
+/* LIST NARRATIVES CARD */
+.card{
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(124, 67, 67, 0.55);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.55);
+    border: 0 !important;
+}
+.card-img-top{
+    height: 115px;
+}
+.card-body{
+    padding: 1em;
+}
+
 
 /* PORTFOLIO */
 .portfolio-item {
@@ -115,4 +136,10 @@ a:focus, a:hover {
 /* CORES */
 .cl-primary{
   color: #ffb007 !important;
+}
+.bg-primary{
+  background-color: #ffb007 !important;
+}
+.bg-black{
+  background-color: #000000 !important;
 }

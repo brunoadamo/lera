@@ -9,8 +9,12 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <p>{{$narrative->content}}</p>
 
-                    <small>Criado por <strong>{{$narrative->user->alias}}</strong>
-                    </small>
+                    <div class="row col-sm-12 mx-auto text-center mb-5 mt-5">
+                        <a href="{{ url('admin/acts/create') }}" class="btn btn-warning mx-auto">Colabore com essa narrativa!</a>
+                    </div>
+
+                    <p><small>Criado por <strong>{{$narrative->user->alias}}</strong> </small></p>
+                    <p><small>Colaboradores: <strong>{{$narrative->user->alias}}</strong> </small></p>
                 </div>
             </div>
         </div>

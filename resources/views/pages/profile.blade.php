@@ -26,7 +26,6 @@
 
                         <h3 class="text-center">{{ __('Minhas Narrativas') }} - <a href="{{ url('admin/narratives/create') }}">Criar narrativa</a></h3><br>
 
-
                         <div class="row">
                         @forelse($narratives as $key => $narrative)
                             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
@@ -79,12 +78,11 @@
 
                         <h3 class="text-center">{{ __('Colaborações') }}</h3><br>
 
-
                         <div class="row">
                         @forelse($narratives as $key => $narrative)
                             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
                                 <div class="card h-100">
-                                    <a href="#"><img class="card-img-top" src="{{{ asset(@$narrative->folder  . '' . @$narrative->picture)}}}" alt=""></a>
+                                    <a href="#"><img class="card-img-top img-fluid" src="{{{ asset(@$narrative->folder  . '' . @$narrative->picture)}}}" alt=""></a>
                                     <div class="card-body">
                                         <h5>
                                         <a href="#">{{$narrative->kind->title}}</a>
