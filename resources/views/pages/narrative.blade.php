@@ -14,7 +14,7 @@
                     @foreach ($narrative->acts as $act)
                         <p>{!! $act->content !!}</p>
                         @php ($colaborates[] =  $act->user->alias)
-              
+
                     @endforeach
 
 
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 </article>
 
 <session>
@@ -37,7 +37,7 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <!-- Comments Form -->
                     <div class="card my-4">
-                        <h5 class="card-header">Comentários:</h5>
+                        <h3 class="card-header">Comentários:</h3>
                         <div class="card-body">
                             <form method="POST" action="/narrative/{{$narrative->id}}/comment" aria-label="{{ __('Comentário') }}">
                                 @csrf
@@ -48,14 +48,26 @@
                             </form>
                         </div>
                     </div>
-
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
                     <!-- Single Comment -->
                     @forelse($narrative->comments as $comment)
-                    <div class="media mb-4">
-                        <img class="d-flex mr-3 rounded-circle" src="{{{ asset(@$narrative->user->folder  . '' . @$narrative->user->picture)}}}" alt="">
-                        <div class="media-body">
-                            <h5 class="mt-0">{{ $comment->user->alias }}</h5>
-                            {{ $comment->content }}
+                    <div class="row">
+                        <div class="col-sm-12 media mb-4 pb-4 border-bottom">
+                            <div class="col-2 col-sm-1 user" style="background-image: url({{{ asset(@$narrative->user->folder  . '' . @$narrative->user->picture)}}});">
+                            </div>
+                            <div class="col-10 col-sm-11">
+                                <div class="media-body">
+                                    <h5 class="mt-0">
+                                        {{ $comment->user->alias }}
+                                        <small class="float-right">{{ $comment->created_at->format('d/m/Y')}}</small>
+
+                                    </h5>
+                                    {{ $comment->content }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     @empty
@@ -69,7 +81,7 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 </session>
 
 
