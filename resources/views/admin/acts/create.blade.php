@@ -7,7 +7,7 @@
             <h1 class="text-center">{{ __('Cadastrar Ato') }}</h1>
 
             <div class="card-body">
-                <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}" enctype="multipart/form-data">
+                <form method="POST" action="/narrative/{{$narrative->id}}/act" aria-label="{{ __('Cadastrar ato') }}" enctype="multipart/form-data">
                     @csrf
                   
                     @include('admin.acts._form')

@@ -9,9 +9,9 @@
 </div>
 
 <div class="form-group">
-    <label for="act">{{ __('1º Ato') }}</label>
-    <textarea name="act" id="act" class="summernote form-control{{ $errors->has('act') ? ' is-invalid' : '' }}" placeholder="{{ __('Dica') }}" value="{{ old('act') }}" required autofocus></textarea>
-    @if ($errors->has('act'))
-        <p class="help-block text-danger">{{ $errors->first('act') }}</p>
+    <label for="content">{{ __('1º Ato') }}</label>
+    <textarea name="content" id="content" class="summernote form-control{{ $errors->has('content') ? ' is-invalid' : '' }}" placeholder="{{ __('Dica') }}" value="{{ old('content') }}" required autofocus></textarea>
+    @if ($errors->has('content'))
+        <p class="help-block text-danger">{{ $errors->first('content') }}</p>
     @endif
 </div>

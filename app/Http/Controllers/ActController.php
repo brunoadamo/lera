@@ -12,8 +12,9 @@ class ActController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Narrative $narrative)
     {
-        return view('admin.acts.create');
+        // $narrative = $narrative->load(['user', 'comments', 'rates', 'kind', 'acts']);
+        return view('admin.acts.create', compact('narrative'));
     }
 }

@@ -27,10 +27,13 @@ Route::get('/narratives', function () {
     return view('pages.narratives');
 });
 Route::get('/narrative/{narrative}', 'NarrativeController@single'); //singl page post
+Route::get('/narrative/{narrative}/acts/create', 'ActController@create')->middleware('auth'); //singl page post
 // narratives-------------
 
-// narratives-------------
-
+// comments-------------
+Route::post('/narrative/{narrative}/comment', 'NarrativeController@comment')->middleware('auth');
+Route::post('/narrative/{narrative}/act', 'NarrativeController@act')->middleware('auth');
+// comments/-------------
 Route::resource('narratives','NarrativeController');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {

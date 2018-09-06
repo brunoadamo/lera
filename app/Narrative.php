@@ -12,6 +12,22 @@ class Narrative extends Model
 {
     protected $fillable = ['title', 'theme', 'kind_id', 'act_n', 'clue', 'content', 'folder', 'picture', 'user_id', 'status'];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($narrative) {
+            if(is_null($narrative->user_id)) {
+                $narrative->user_id = auth()->user()->id;
+            }
+        });
+
+        static::deleting(function ($narrative) {
+            $narrative->comments()->delete();
+            $narrative->tags()->detach();
+        });
+    }
+
     public function kind()
     {
         return $this->belongsTo(Kind::class);

@@ -28,7 +28,7 @@ class NarrativeController extends Controller
     
     public function single(Narrative $narrative)
     {
-        $narrative = $narrative->load(['user', 'comments', 'rates', 'kind']);
+        $narrative = $narrative->load(['user', 'comments', 'rates', 'kind', 'acts']);
 
         return view('pages.narrative', compact('narrative'));
     }
@@ -42,6 +42,29 @@ class NarrativeController extends Controller
         $kinds = Kind::pluck('title', 'id')->all();
 
         return view('admin.narratives.create', compact('kinds'));
+    }
+
+    public function comment(Request $request, Narrative $narrative)
+    {
+        $this->validate($request, ['content' => 'required']);
+
+        $narrative->comments()->create([
+            'content' => $request->content
+        ]);
+        //flash()->overlay('Comentário criado!');
+
+        return redirect("/narrative/{$narrative->id}");
+    }
+    public function act(Request $request, Narrative $narrative)
+    {
+        $this->validate($request, ['content' => 'required']);
+
+        $narrative->acts()->create([
+            'content' => $request->content
+        ]);
+        //flash()->overlay('Comentário criado!');
+
+        return redirect("/narrative/{$narrative->id}");
     }
     //fronend-------------------------
 
