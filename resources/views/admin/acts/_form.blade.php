@@ -1,11 +1,8 @@
 <div class="form-group">
     <label for="clue">{{ __('Dica') }}</label>
     
-    <textarea name="clue" id="clue" class="form-control{{ $errors->has('clue') ? ' is-invalid' : '' }}" placeholder="{{ __('Dica') }}" value="{{ old('clue') }}" disabled></textarea>
+    <textarea name="clue" id="clue" class="form-control" disabled>{{$narrative->clue}}</textarea>
 
-    @if ($errors->has('clue'))
-        <p class="help-block text-danger">{{ $errors->first('clue') }}</p>
-    @endif
 </div>
 
 <div class="form-group">

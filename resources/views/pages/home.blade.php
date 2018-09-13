@@ -5,11 +5,11 @@
 <div class="post-list post-list-home">
     <div class="container">
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-sm-12 col-lg-9 pt-3 pb-3 d-none d-sm-none d-md-block">
                 <h3 class="mb-3">COLABORE CONOSCO!</h3>
                 <div class="row">
                 @forelse($narratives as $key => $narrative)
-                    <div class="col-lg-4 col-md-4 col-sm-6 portfolio-item">
+                    <div class="col-lg-4 col-md-6 col-sm-6 portfolio-item">
                         <div class="card">
                             <div class="col-sm-12 mx-auto featured" style="background-image: url('{{{ asset(@$narrative->folder  . '' . @$narrative->picture)}}}')"> </div>
                             <div class="card-body mx-auto text-center">
@@ -32,7 +32,7 @@
             </div>
             
 
-            <div class="col-sm-3 pt-3 pb-3 side-card">
+            <div class="col-sm-12 col-lg-3 pt-3 pb-3">
                 <h4 class="mb-2 text-left">Conheça algumas narrativas...</h4>
                 <hr>
                 <div class="list-group">

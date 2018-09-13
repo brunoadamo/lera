@@ -40,6 +40,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     // Route::resource('/', 'NarrativeController');
     Route::resource('/narratives', 'NarrativeController');
     Route::resource('/acts', 'ActController');
+    Route::resource('/users', 'UserController');
     // Route::put('/narratives/{narrative}/publish', 'NarrativeController@publish')->middleware('admin');
 });
 

@@ -7,18 +7,33 @@
         <div class="container">
             <div class="row">
                 
-                <div class="col-md-4">
-                    <a href="#">
-                        <img class="img-fluid rounded mb-3 mb-md-0" src="{{{ asset(@Auth::user()->folder  . '' . @Auth::user()->picture)}}}" alt="">
-                    </a>
-                </div>
-                <div class="col-md-8">
-                    <h2 class="cl-primary">{{Auth::user()->name}}</h2>
-                    <small>{{Auth::user()->alias}}</small>
-                    <p>Narrativas: </p>
-                    <p>Colaborações: </p>
-                </div>
-                <div class="clearfix"></div>
+                <div class="col-sm-12 pb-5">
+                    <div class="row">
+                                   
+                        <div class="col-md-4">
+                            <a href="#">
+                                <img class="img-fluid rounded mb-3 mb-md-0 img-thumbnail" src="{{{ asset(@Auth::user()->folder  . '' . @Auth::user()->picture)}}}" alt="">
+                            </a>
+                        </div>
+                        <div class="col-md-8">
+                            <h2 class="cl-primary">
+                                {{Auth::user()->name}}
+                                <a href="{{ route('logout') }}" class="btn btn-danger btn-sm float-right font-weight-normal" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Sair </a>
+
+                                <a href="{{ url("/admin/users/" . Auth::user()->id . "/edit") }}" class="btn btn-info btn-sm float-right font-weight-normal mr-3"> Editar </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            
+                            </h2>
+                            <small>{{Auth::user()->alias}}</small>
+                            <p>Narrativas: </p>
+                            <p>Colaborações: </p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>    
                
 
                 <div class="user-narratives">

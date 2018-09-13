@@ -115,6 +115,13 @@ footer{
 }
 
 /* FORM */
+.btn-sm {
+    padding: .25rem .5rem !important;
+    font-size: .875rem !important;
+    line-height: 1.5 !important;
+    border-radius: .2rem !important;
+}
+
 .btn-link{
     padding: 0;
     color: #ffb007;
@@ -146,7 +153,7 @@ a:focus, a:hover {
 
 /* LIST NARRATIVES CARD */
 .card{
-    box-shadow: 0 0.125rem 0.1875rem 0 rgba(0,0,0,.11);
+    box-shadow: 0 0.125rem 0.1875rem 0 rgba(0,0,0,.35);
     border: 0 !important;
 }
 .card-img-top{
@@ -159,7 +166,7 @@ a:focus, a:hover {
 /* side */
 
 .side-card{
-    box-shadow: 0 0.125rem 0.1875rem 0 rgba(0,0,0,.11);
+    box-shadow: 0 0.125rem 0.1875rem 0 rgba(0,0,0,.15);
 }
 .side-card .list-group-item{
     border:0;
