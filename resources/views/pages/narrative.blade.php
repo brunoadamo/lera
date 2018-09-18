@@ -16,35 +16,34 @@
 
                     @foreach ($narrative->acts as $act)
 
-                        @if($act->status)
                             <p>{!! $act->content !!}</p>
                             @php ($colaborates[] =  $act->user->alias)
                             @php ($colaborates_id[] =  $act->user->id)
-                        @endif
 
                     @endforeach
 
 
-                    @foreach ($narrative->acts as $act)
+                    @foreach ($colaborate->acts as $act)
 
-                        @if(!$act->status)
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    <ul class="nav nav-pills card-header-pills">
-                                    <li class="nav-item">
-                                        <a class="nav-link active btn-success" href="#">Aceitar</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link btn-danger" href="#">Rejeitar</a>
-                                    </li>
-                                    </ul>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text">{!! $act->content !!}</p>
-                                    <footer class="blockquote-footer">criado por <cite title="Source Title">{{ $act->user->alias }}</cite></footer>
-                                </div>
-                            </div>
-                        @endif
+
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-pills card-header-pills">
+                            <li class="nav-item">
+                                <a class="nav-link active btn-success" href="#">Aprovar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Rejeitar</a>
+                            </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                            <p>{!!$act->content!!}</p>
+                            <p class="blockquote-footer">Criado por <cite title="{{$act->user->alias}}">{{$act->user->alias}}</cite></p>
+                            </blockquote>
+                        </div>
+                    </div>
 
                     @endforeach
 

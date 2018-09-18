@@ -26,12 +26,13 @@ class NarrativeController extends Controller
         return view('pages.narratives', compact('narratives'));
     }
 
-    public function single(Narrative $narrative, Request $request)
+    public function single(int $id, Request $request)
     {
         //charge the colaborate with the pattern
         // $narrative->load(['user', 'comments', 'rates', 'kind', 'acts']);
-        $narrative = $narrative->load(['user', 'comments', 'rates', 'kind', 'acts']);
-
+        // $narrative = $narrative->load(['user', 'comments', 'rates', 'kind', 'acts']);
+        $narrative  = Narrative::find($id)->load(['user', 'comments', 'rates', 'kind']);
+        $colaborate = Narrative::find($id)->load(['user', 'comments', 'rates', 'kind']);
         // $colaborate = $narrative->load(['acts' => function ($query) {
         //     $query->where('status', 0);
         // }]);
@@ -40,13 +41,13 @@ class NarrativeController extends Controller
         //     $query->where('user_id', Auth::user()->id);
         // })->get();
 
-        // $narrative->load(['acts' => function ($query) {
-        //     $query->where('status', 1);
-        // }]);
+        $narrative->load(['acts' => function ($query) {
+            $query->where('status', 1);
+        }]);
 
-        // $colaborate->with(['acts' => function ($query) {
-        //     $query->where('status', 0);
-        // }]);
+        $colaborate->load(['acts' => function ($query) {
+            $query->where('status', 0);
+        }]);
 
         return view('pages.narrative', compact('narrative', 'colaborate'));
     }
