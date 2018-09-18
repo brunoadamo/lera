@@ -15,7 +15,7 @@ class NarrativeController extends Controller
     {
         $narratives = Narrative::when($request->search, function($query) use($request) {
                         $search = $request->search;
-                        
+
                         return $query->where('title', 'like', "%$search%")
                             ->orWhere('content', 'like', "%$search%");
                     })->where('is_published', false)
@@ -25,16 +25,28 @@ class NarrativeController extends Controller
 
         return view('pages.narratives', compact('narratives'));
     }
-    
+
     public function single(Narrative $narrative, Request $request)
     {
-        $narrative = $narrative->load(['user', 'comments', 'rates', 'kind']);
+        //charge the colaborate with the pattern
+        // $narrative->load(['user', 'comments', 'rates', 'kind', 'acts']);
+        $narrative = $narrative->load(['user', 'comments', 'rates', 'kind', 'acts']);
 
-        $narrative = $narrative->load(['acts' => function ($query) {
-            $query->where('status', 1);
-        }]);
+        // $colaborate = $narrative->load(['acts' => function ($query) {
+        //     $query->where('status', 0);
+        // }]);
+        //load just the narratives that has the user id in act
+        // $colaborates = Narrative::whereHas('acts', function ($query) {
+        //     $query->where('user_id', Auth::user()->id);
+        // })->get();
 
-        $colaborate = $narrative->load(['acts']);
+        // $narrative->load(['acts' => function ($query) {
+        //     $query->where('status', 1);
+        // }]);
+
+        // $colaborate->with(['acts' => function ($query) {
+        //     $query->where('status', 0);
+        // }]);
 
         return view('pages.narrative', compact('narrative', 'colaborate'));
     }

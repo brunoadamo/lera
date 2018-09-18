@@ -94,7 +94,7 @@
                         <h3 class="text-center">{{ __('Colaborações') }}</h3><br>
 
                         <div class="row">
-                        @forelse($narratives as $key => $narrative)
+                        @forelse($colaborates as $key => $narrative)
                             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
                                 <div class="card h-100">
                                     <a href="#"><img class="card-img-top img-fluid" src="{{{ asset(@$narrative->folder  . '' . @$narrative->picture)}}}" alt=""></a>

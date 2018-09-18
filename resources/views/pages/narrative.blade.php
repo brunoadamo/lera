@@ -15,12 +15,40 @@
                     <p>{{$narrative->content}}</p>
 
                     @foreach ($narrative->acts as $act)
-                        <p>{!! $act->content !!}</p>
-                        @php ($colaborates[] =  $act->user->alias)
-                        @php ($colaborates_id[] =  $act->user->id)
+
+                        @if($act->status)
+                            <p>{!! $act->content !!}</p>
+                            @php ($colaborates[] =  $act->user->alias)
+                            @php ($colaborates_id[] =  $act->user->id)
+                        @endif
 
                     @endforeach
-                    
+
+
+                    @foreach ($narrative->acts as $act)
+
+                        @if(!$act->status)
+                            <div class="card text-center">
+                                <div class="card-header">
+                                    <ul class="nav nav-pills card-header-pills">
+                                    <li class="nav-item">
+                                        <a class="nav-link active btn-success" href="#">Aceitar</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link btn-danger" href="#">Rejeitar</a>
+                                    </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{!! $act->content !!}</p>
+                                    <footer class="blockquote-footer">criado por <cite title="Source Title">{{ $act->user->alias }}</cite></footer>
+                                </div>
+                            </div>
+                        @endif
+
+                    @endforeach
+
+
                     @if(!in_array($user_id, $colaborates_id) && $user_id != $narrative->user->id)
                         <div class="row col-sm-12 mx-auto text-center mb-5 mt-5">
                             <a href="{{ url('narrative/'. $narrative->id . '/acts/create') }}" class="btn btn-warning mx-auto">Colabore com essa narrativa!</a>
@@ -62,7 +90,7 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <!-- Single Comment -->
                     @forelse($narrative->comments as $comment)
-                    
+
                     <div class="row">
                         <div class="col-sm-12 media mb-4 pb-4 border-bottom">
                             <div class="col-2 col-sm-1 user img-thumbnail" style="background-image: url({{{ asset(@$comment->user->folder  . '' . @$comment->user->picture)}}});">
