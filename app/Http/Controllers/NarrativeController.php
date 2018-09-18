@@ -26,11 +26,17 @@ class NarrativeController extends Controller
         return view('pages.narratives', compact('narratives'));
     }
     
-    public function single(Narrative $narrative)
+    public function single(Narrative $narrative, Request $request)
     {
-        $narrative = $narrative->load(['user', 'comments', 'rates', 'kind', 'acts']);
+        $narrative = $narrative->load(['user', 'comments', 'rates', 'kind']);
 
-        return view('pages.narrative', compact('narrative'));
+        $narrative = $narrative->load(['acts' => function ($query) {
+            $query->where('status', 1);
+        }]);
+
+        $colaborate = $narrative->load(['acts']);
+
+        return view('pages.narrative', compact('narrative', 'colaborate'));
     }
     /**
      * Show the form for creating a new resource.

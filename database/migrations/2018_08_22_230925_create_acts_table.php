@@ -18,7 +18,7 @@ class CreateActsTable extends Migration
             $table->longText('content');
             $table->integer('narrative_id');
             $table->integer('user_id');
-            $table->integer('status')->default('1');;
+            $table->integer('status')->default('0');;
             $table->timestamps();
         });
     }

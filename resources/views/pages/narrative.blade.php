@@ -3,6 +3,9 @@
 @section('content')
 
 @php ($colaborates = [])
+@php ($colaborates_id = [])
+@php ($user_id = "")
+@php if(Auth::guest()) $user_id = auth()->user()->id
 <!-- Post Content -->
 <article>
     <div class="narrative-single">
@@ -14,16 +17,21 @@
                     @foreach ($narrative->acts as $act)
                         <p>{!! $act->content !!}</p>
                         @php ($colaborates[] =  $act->user->alias)
+                        @php ($colaborates_id[] =  $act->user->id)
 
                     @endforeach
-
-
-                    <div class="row col-sm-12 mx-auto text-center mb-5 mt-5">
-                        <a href="{{ url('narrative/'. $narrative->id . '/acts/create') }}" class="btn btn-warning mx-auto">Colabore com essa narrativa!</a>
-                    </div>
+                    
+                    @if(!in_array($user_id, $colaborates_id) && $user_id != $narrative->user->id)
+                        <div class="row col-sm-12 mx-auto text-center mb-5 mt-5">
+                            <a href="{{ url('narrative/'. $narrative->id . '/acts/create') }}" class="btn btn-warning mx-auto">Colabore com essa narrativa!</a>
+                        </div>
+                    @endif
 
                     <p><small>Criado por <strong>{{$narrative->user->alias}}</strong> </small></p>
-                    <p><small>Colaboradores: <strong>{{ implode(', ', $colaborates) }}</strong></small></p>
+
+                    @if(count($colaborates)>0)
+                        <p><small>Colaboradores: <strong>{{ implode(', ', $colaborates) }}</strong></small></p>
+                    @endif
                 </div>
             </div>
         </div>
@@ -54,9 +62,10 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <!-- Single Comment -->
                     @forelse($narrative->comments as $comment)
+                    
                     <div class="row">
                         <div class="col-sm-12 media mb-4 pb-4 border-bottom">
-                            <div class="col-2 col-sm-1 user" style="background-image: url({{{ asset(@$narrative->user->folder  . '' . @$narrative->user->picture)}}});">
+                            <div class="col-2 col-sm-1 user img-thumbnail" style="background-image: url({{{ asset(@$comment->user->folder  . '' . @$comment->user->picture)}}});">
                             </div>
                             <div class="col-10 col-sm-11">
                                 <div class="media-body">

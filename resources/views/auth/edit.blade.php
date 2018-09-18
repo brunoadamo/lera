@@ -10,6 +10,12 @@
                 {!! Form::model($user, ['method' => 'PUT', 'url' => "/admin/users/{$user->id}", 'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
                     @csrf
 
+                    <div class="col-md-4 mx-auto">
+                        <a href="#">
+                            <img class="img-fluid rounded mb-3 mb-md-0 img-thumbnail" src="{{{ asset(@Auth::user()->folder  . '' . @Auth::user()->picture)}}}" alt="">
+                        </a>
+                    </div>
+
                     @include('auth._form')
                     
                     <div class="form-group row mb-0">

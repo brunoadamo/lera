@@ -129,6 +129,10 @@ footer{
 form .form-group:first-child .floating-label-form-group{
     border-top: 0 !important;
 }
+.form-group .help-block{
+    font-size: 11px;
+    margin: 10px 0;
+}
 
 
 /* LINKS ----------- */
@@ -166,7 +170,7 @@ a:focus, a:hover {
 /* side */
 
 .side-card{
-    box-shadow: 0 0.125rem 0.1875rem 0 rgba(0,0,0,.15);
+    box-shadow: 0 0.125rem 0.1875rem 0 rgba(0,0,0,.35);
 }
 .side-card .list-group-item{
     border:0;

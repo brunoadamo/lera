@@ -32,7 +32,7 @@
             </div>
             
 
-            <div class="col-sm-12 col-lg-3 pt-3 pb-3">
+            <div class="col-sm-12 col-lg-3 pt-3 pb-3 side-card">
                 <h4 class="mb-2 text-left">Conheça algumas narrativas...</h4>
                 <hr>
                 <div class="list-group">

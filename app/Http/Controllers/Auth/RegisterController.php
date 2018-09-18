@@ -66,20 +66,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $file_name = 'null';
+        $path       = 'uploads/user/profile/';
+        $file_name  = "user.png";
         
-        if (Input::file('picture')->isValid()) {
-            $path = public_path('uploads/user/profile');
-            $extension = Input::file('picture')->getClientOriginalExtension();
-            $file_name = uniqid().'.'.$extension;
+        if(Input::hasFile('picture')){
 
-            Input::file('picture')->move($path, $file_name);
+            if (Input::file('picture')->isValid()) {
+                
+                $path_full = public_path($path);
+                $extension = Input::file('picture')->getClientOriginalExtension();
+                $file_name = uniqid().'.'.$extension;
+    
+                Input::file('picture')->move($path_full, $file_name);
+            }
         }
         
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'folder' => $path,
             'picture' => $file_name,
             'alias' => $data['alias'],
             

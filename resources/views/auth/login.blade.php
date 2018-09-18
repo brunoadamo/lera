@@ -50,7 +50,10 @@
                         </button>
 
                         <a class="btn btn-link float-right" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
+                            {{ __('Esqueceu sua senha?') }}
+                        </a>
+                        <a class="btn btn-link float-right mr-5" href="{{ route('register') }}">
+                            {{ __('Cadastre-se') }}
                         </a>
                     </div>
                 </form>
