@@ -21,7 +21,21 @@ class NarrativeController extends Controller
                     })->where('is_published', false)
                     ->with('rates', 'kind', 'user')
                     ->withCount('comments')
-                    ->simplePaginate(5);
+                    ->paginate(5);
+
+        return view('pages.narratives', compact('narratives'));
+    }
+    public function portfolio(Request $request)
+    {
+        $narratives = Narrative::when($request->search, function($query) use($request) {
+                        $search = $request->search;
+
+                        return $query->where('title', 'like', "%$search%")
+                            ->orWhere('content', 'like', "%$search%");
+                    })->where('is_published', true)
+                    ->with('rates', 'kind', 'user')
+                    ->withCount('comments')
+                    ->paginate(5);
 
         return view('pages.narratives', compact('narratives'));
     }

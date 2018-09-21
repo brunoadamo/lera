@@ -14,7 +14,7 @@ class NarrativeTableSeeder extends Seeder
     public function run()
     {
         // Let's truncate our existing records to start from scratch.
-        Narrative::truncate();
+        // Narrative::truncate();
 
         $faker = \Faker\Factory::create();
 
@@ -23,7 +23,7 @@ class NarrativeTableSeeder extends Seeder
             Narrative::create([
                 'title' => $faker->sentence,
                 'theme' => $faker->sentence,
-                'kind_id' => 1,
+                'kind_id' => rand(1, 20),
                 'act_n' => 3,
                 'clue' => $faker->sentence,
                 'content' => $faker->paragraph,

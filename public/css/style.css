@@ -139,8 +139,17 @@ form .form-group:first-child .floating-label-form-group{
 a:focus, a:hover {
     color: #ffb007;
 }
+
+/* PAGINATION----------- */
+.pagination{
+    justify-content: center;
+}
+.page-item.active .page-link{
+    background-color: #bdbdbd;
+    border-color: #949494;
+}
 .page-link{
-    color: #3c3c3c;
+    color: #3c3c3c !important;
 }
 .page-link:hover{
     color: #3c3c3c;
@@ -175,7 +184,6 @@ a:focus, a:hover {
 .side-card .list-group-item{
     border:0;
 }
-
 
 /* PORTFOLIO */
 .portfolio-item {

@@ -21,15 +21,24 @@ class UserTableSeeder extends Seeder
         // Let's make sure everyone has the same password and 
         // let's hash it before the loop, or else our seeder 
         // will be too slow.
-        $password = Hash::make('master');
 
         User::create([
             'name' => 'Master',
             'email' => 'bruno@gmail.com',
-            'password' => $password,
+            'password' => Hash::make('master'),
             'folder' => 'uploads/user/profile/',
             'picture' => 'user.png',
             'alias' => 'The Master',
+            'status' => 1,
+        ]);
+
+        User::create([
+            'name' => 'Teste',
+            'email' => 'teste@gmail.com',
+            'password' => Hash::make('teste'),
+            'folder' => 'uploads/user/profile/',
+            'picture' => 'user.png',
+            'alias' => 'The Tester',
             'status' => 1,
         ]);
 

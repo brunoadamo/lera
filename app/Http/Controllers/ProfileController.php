@@ -32,12 +32,12 @@ class ProfileController extends Controller
         ->with('rates', 'kind', 'user')
         ->withCount('comments')
         ->withCount('acts')
-        ->simplePaginate(10);
+        ->paginate(8);
 
         //load just the narratives that has the user id in act
         $colaborates = Narrative::whereHas('acts', function ($query) {
             $query->where('user_id', Auth::user()->id);
-        })->get();
+        })->paginate(8);
 
         return view('pages.profile', compact('narratives','colaborates'));
     }

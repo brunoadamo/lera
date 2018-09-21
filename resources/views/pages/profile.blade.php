@@ -48,7 +48,7 @@
                                     
                                     <div class="card-body">
                                         <small> <strong>{{$narrative->kind->title}}</strong> - {{$narrative->acts_count}} / {{$narrative->act_n}} Atos </small>
-                                        <p class="card-text"><a href="#">{{$narrative->title}}</a></p>
+                                        <p class="card-text"><a href="/narrative/{{$narrative->id}}">{{$narrative->title}}</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -60,31 +60,6 @@
                             </div>
                         @endforelse
                         </div>
-                            
-                        <!-- Pagination -->
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
         
                     </div>
                 </div>
@@ -97,7 +72,8 @@
                         @forelse($colaborates as $key => $narrative)
                             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
                                 <div class="card h-100">
-                                    <a href="#"><img class="card-img-top img-fluid" src="{{{ asset(@$narrative->folder  . '' . @$narrative->picture)}}}" alt=""></a>
+                                    
+                                    <a href="/narrative/{{$narrative->id}}"><img class="card-img-top img-fluid" src="{{{ asset(@$narrative->folder  . '' . @$narrative->picture)}}}" alt=""></a>
                                     <div class="card-body">
                                         <h5>
                                         <a href="#">{{$narrative->kind->title}}</a>
@@ -116,29 +92,8 @@
                         </div>
                             
                         <!-- Pagination -->
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
+                        {{ $narratives->links() }}
+                        <!-- Pagination -->
         
                     </div>
                 </div>

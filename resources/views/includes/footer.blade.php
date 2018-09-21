@@ -38,11 +38,12 @@
 
 <!-- Bootstrap core JavaScript -->
 <script src="{{{ asset('lib/template/startbootstrap-clean-blog/vendor/jquery/jquery.min.js')}}}"></script>
-<script src="{{{ asset('lib/template/startbootstrap-clean-blog/vendor/bootstrap/js/bootstrap.bundle.min.js')}}}"></script>
+<script src="{{{ asset('lib/template/startbootstrap-clean-blog/js/clean-blog.min.js')}}}"></script>
 
 <!-- include summernote css/js-->
 <script src="{{{ asset('lib/summernote-master/dist/summernote-bs4.js')}}}"></script>
 <script src="{{{ asset('lib/summernote-master/dist/lang/summernote-pt-BR.js')}}}"></script>
+<script src="{{{ asset('js/custom.js')}}}"></script>
 
 <!-- Custom scripts for this template -->
 <script src="{{{ asset('lib/template/startbootstrap-clean-blog/js/clean-blog.min.js')}}}"></script>

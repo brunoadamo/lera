@@ -5,7 +5,6 @@
 @php ($colaborates = [])
 @php ($colaborates_id = [])
 @php ($user_id = "")
-@php if(Auth::guest()) $user_id = auth()->user()->id
 <!-- Post Content -->
 <article>
     <div class="narrative-single">
@@ -29,12 +28,12 @@
                     <div class="card">
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills">
-                            <li class="nav-item">
-                                <a class="nav-link active btn-success" href="#">Aprovar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Rejeitar</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active btn-success" href="#">Aprovar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url("admin/acts/{$act->id}/status/99") }}" data-method="PUT" data-token="{{ csrf_token() }}" class="nav-link">Rejeitar</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="card-body">
@@ -65,6 +64,7 @@
     </div>
 </article>
 
+@if($narrative->is_published)
 <session>
     <div class="comments">
         <div class="container">
@@ -85,6 +85,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <!-- Single Comment -->
@@ -112,14 +113,15 @@
                             Nenhum comentário até o momento...
                         </div>
                     </div>
-                    @endforelse
+                    
 
                 </div>
             </div>
+            @endif
         </div>
     </div>
 </session>
-
+@endforelse
 
 
 @stop
