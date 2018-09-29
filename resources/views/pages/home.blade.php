@@ -65,7 +65,7 @@
     </div>
 </div>
 
-<div class="about bg-light-grey">
+<div class="about bg-light-grey" id="sobre">
     <div class="container">
         <div class="row">
 

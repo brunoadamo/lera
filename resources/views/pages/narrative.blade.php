@@ -4,7 +4,7 @@
 
 @php ($colaborates = [])
 @php ($colaborates_id = [])
-@php ($user_id = "")
+@php ($user_id = 0)
 <!-- Post Content -->
 <article>
     <div class="narrative-single">
@@ -15,37 +15,52 @@
 
                     @foreach ($narrative->acts as $act)
 
-                            <p>{!! $act->content !!}</p>
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    {{$act->order}} Ato
+                                </div>
+                                <div class="card-body">
+                                    <p class="blockquote mb-0">
+                                    <p>{!! $act->content !!}</p>
+                                    <p class="blockquote-footer">Escrito por <cite title="{!! $act->user->alias !!}">{!! $act->user->alias !!}</cite></footer>
+                                    </p>
+                                </div>
+                            </div>
                             @php ($colaborates[] =  $act->user->alias)
                             @php ($colaborates_id[] =  $act->user->id)
 
                     @endforeach
 
+                    @if (Auth::check())
+                        @php ($user_id = Auth::user()->id)
+                        @if($user_id == $narrative->user->id)
+                            @foreach ($colaborate->acts as $act)
 
-                    @foreach ($colaborate->acts as $act)
+                            <div class="card mb-2">
+                                <div class="card-header">
+                                    <ul class="nav nav-pills card-header-pills">
+                                        <li class="nav-item">
+                                            <a class="nav-link active btn-success" href="{{ url("admin/acts/{$act->id}/status/1") }}" data-method="PUT" data-token="{{ csrf_token() }}">Aprovar</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url("admin/acts/{$act->id}/status/99") }}" data-method="PUT" data-token="{{ csrf_token() }}" class="nav-link">Rejeitar</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <blockquote class="blockquote mb-0">
+                                    <p>{!!$act->content!!}</p>
+                                    <p class="blockquote-footer">Criado por <cite title="{{$act->user->alias}}">{{$act->user->alias}}</cite></p>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            @php ($colaborates_id[] =  $act->user->id)
 
-
-                    <div class="card">
-                        <div class="card-header">
-                            <ul class="nav nav-pills card-header-pills">
-                                <li class="nav-item">
-                                    <a class="nav-link active btn-success" href="#">Aprovar</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url("admin/acts/{$act->id}/status/99") }}" data-method="PUT" data-token="{{ csrf_token() }}" class="nav-link">Rejeitar</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-body">
-                            <blockquote class="blockquote mb-0">
-                            <p>{!!$act->content!!}</p>
-                            <p class="blockquote-footer">Criado por <cite title="{{$act->user->alias}}">{{$act->user->alias}}</cite></p>
-                            </blockquote>
-                        </div>
-                    </div>
-
-                    @endforeach
-
+                            @endforeach
+                        @endif
+                        
+                    
+                    @endif        
 
                     @if(!in_array($user_id, $colaborates_id) && $user_id != $narrative->user->id)
                         <div class="row col-sm-12 mx-auto text-center mb-5 mt-5">
@@ -53,11 +68,6 @@
                         </div>
                     @endif
 
-                    <p><small>Criado por <strong>{{$narrative->user->alias}}</strong> </small></p>
-
-                    @if(count($colaborates)>0)
-                        <p><small>Colaboradores: <strong>{{ implode(', ', $colaborates) }}</strong></small></p>
-                    @endif
                 </div>
             </div>
         </div>
@@ -103,6 +113,11 @@
 
                                     </h5>
                                     {{ $comment->content }}
+                                </div>
+                                <div class="control-buttons pt-3">
+
+                                    <a href="{{ url("/admin/comments/{$comment->id}") }}" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Deseja excluir?" class="text-danger">Delete</a>
+
                                 </div>
                             </div>
                         </div>

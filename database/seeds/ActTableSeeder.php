@@ -23,6 +23,7 @@ class ActTableSeeder extends Seeder
         for ($i = 0; $i < 7; $i++) {
             Act::create([
                 'content' => $faker->sentence,
+                'order' => 1,
                 'narrative_id' => 1,
                 'user_id' => 1,
             ]);

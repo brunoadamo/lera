@@ -39,6 +39,7 @@
 <!-- Bootstrap core JavaScript -->
 <script src="{{{ asset('lib/template/startbootstrap-clean-blog/vendor/jquery/jquery.min.js')}}}"></script>
 <script src="{{{ asset('lib/template/startbootstrap-clean-blog/js/clean-blog.min.js')}}}"></script>
+<script src="{{{ asset('lib/template/startbootstrap-clean-blog/vendor/bootstrap/js/bootstrap.bundle.min.js')}}}"></script>
 
 <!-- include summernote css/js-->
 <script src="{{{ asset('lib/summernote-master/dist/summernote-bs4.js')}}}"></script>

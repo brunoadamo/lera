@@ -25,6 +25,13 @@ class ActController extends Controller
         $act->status = $status;
         $narrative_id = $act->narrative_id;
         $act->save();
+        
+        //update all the others acts from this narrative = denied all others
+        if($status == 1){
+            Act::where('narrative_id', $narrative_id)
+                ->where('status', 0)
+                ->update(['status' => 99]);
+        }
 
         return redirect('/narrative/' . $narrative_id);
         

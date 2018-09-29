@@ -18,6 +18,32 @@ class CommentController extends Controller
     {
         $this->middleware('auth');
     }
+
+    // FRONTEND-----------
+
+    
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Comment $comment)
+    {
+        // if($comment->user_id != auth()->user()->id && auth()->user()->is_admin == false) {
+        //     flash()->overlay("You can't delete other peoples comment.");
+        //     return redirect('/admin/posts');
+        // }
+
+        $narrative_id = $comment->narrative_id;
+
+        $comment->delete();
+        // flash()->overlay('Comment deleted successfully.');
+
+        return redirect('/narrative/' . $narrative_id);
+    }
+
+    // FRONTEND-----------
     
     public function index()
     {
@@ -58,10 +84,10 @@ class CommentController extends Controller
         return response()->json($comment, 200);
     }
 
-    public function delete(Comment $comment)
-    {
-        $comment->delete();
+    // public function delete(Comment $comment)
+    // {
+    //     $comment->delete();
 
-        return response()->json(null, 204);
-    }
+    //     return response()->json(null, 204);
+    // }
 }

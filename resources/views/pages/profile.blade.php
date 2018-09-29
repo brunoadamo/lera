@@ -35,67 +35,58 @@
                     </div>
                 </div>    
                
+                <div class="user-narratives col-sm-12 mx-auto">
 
-                <div class="user-narratives">
-                    <div class="col-sm-12 mx-auto">
+                    <h3 class="text-center">{{ __('Minhas Narrativas') }} - <a href="{{ url('admin/narratives/create') }}">Criar narrativa</a></h3><br>
 
-                        <h3 class="text-center">{{ __('Minhas Narrativas') }} - <a href="{{ url('admin/narratives/create') }}">Criar narrativa</a></h3><br>
-
-                        <div class="row">
-                        @forelse($narratives as $key => $narrative)
-                            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                                <div class="card h-100">
-                                    
-                                    <div class="card-body">
-                                        <small> <strong>{{$narrative->kind->title}}</strong> - {{$narrative->acts_count}} / {{$narrative->act_n}} Atos </small>
-                                        <p class="card-text"><a href="/narrative/{{$narrative->id}}">{{$narrative->title}}</a></p>
-                                    </div>
+                    <div class="row">
+                    @forelse($narratives as $key => $narrative)
+                        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+                            <div class="card h-100">
+                                
+                                <div class="card-body">
+                                    <small> <strong>{{$narrative->kind->title}}</strong> - {{$narrative->acts_count}} / {{$narrative->act_n}} Atos </small>
+                                    <p class="card-text"><a href="/narrative/{{$narrative->id}}">{{$narrative->title}}</a></p>
                                 </div>
                             </div>
-                            @empty
-                            <div class="row">
-                                <div class="col-sm-12 mx-auto">
-                                    <p>Nenhuma narrativa cadastrada</p>
-                                </div>
-                            </div>
-                        @endforelse
                         </div>
-        
+                        @empty
+                        <div class="col-sm-12 mx-auto text-center p-4">
+                            <p>Nenhuma narrativa cadastrada</p>
+                        </div>
+                    @endforelse
                     </div>
+        
                 </div>
-                <div class="user-collaborative-narratives">
-                    <div class="col-sm-12 mx-auto">
+                <div class="user-collaborative-narratives col-sm-12 mx-auto">
 
-                        <h3 class="text-center">{{ __('Colaborações') }}</h3><br>
+                    <h3 class="text-center">{{ __('Colaborações') }}</h3><br>
 
-                        <div class="row">
-                        @forelse($colaborates as $key => $narrative)
-                            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-                                <div class="card h-100">
-                                    
-                                    <a href="/narrative/{{$narrative->id}}"><img class="card-img-top img-fluid" src="{{{ asset(@$narrative->folder  . '' . @$narrative->picture)}}}" alt=""></a>
-                                    <div class="card-body">
-                                        <h5>
-                                        <a href="#">{{$narrative->kind->title}}</a>
-                                        </h5>
-                                        <p class="card-text">{{$narrative->title}}</p>
-                                    </div>
+                    <div class="row">
+                    @forelse($colaborates as $key => $narrative)
+                        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+                            <div class="card h-100">
+                                
+                                <a href="/narrative/{{$narrative->id}}"><img class="card-img-top img-fluid" src="{{{ asset(@$narrative->folder  . '' . @$narrative->picture)}}}" alt=""></a>
+                                <div class="card-body">
+                                    <h5>
+                                    <a href="#">{{$narrative->kind->title}}</a>
+                                    </h5>
+                                    <p class="card-text">{{$narrative->title}}</p>
                                 </div>
                             </div>
-                            @empty
-                            <div class="row">
-                                <div class="col-sm-12 mx-auto">
-                                    <p>Nenhuma narrativa cadastrada</p>
-                                </div>
-                            </div>
-                        @endforelse
                         </div>
-                            
-                        <!-- Pagination -->
-                        {{ $narratives->links() }}
-                        <!-- Pagination -->
-        
+                        @empty
+                        <div class="col-sm-12 mx-auto text-center p-4">
+                            <p>Você ainda não colaborou com nenhuma narrativa =(</p>
+                        </div>
+                    @endforelse
                     </div>
+                        
+                    <!-- Pagination -->
+                    {{ $narratives->links() }}
+                    <!-- Pagination -->
+        
                 </div>
             </div>
         </div>

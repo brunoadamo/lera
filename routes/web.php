@@ -19,7 +19,6 @@ Route::get('/home', function () {
     return view('pages.home');
 });
 Route::get('/welcome', function () {
-    Toastr::warning("teste", "Teste", ["positionClass" => "toast-top-center"]);
     return view('welcome');
 });
 Route::resource('/', 'HomeController');
@@ -46,6 +45,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('/narratives', 'NarrativeController');
     Route::resource('/acts', 'ActController');
     Route::resource('/users', 'UserController');
+    Route::resource('/comments', 'CommentController', ['only' => ['delete']]);
     
     Route::put('/acts/{act}/status/{status}', 'ActController@status');
     // Route::put('/narratives/{narrative}/publish', 'NarrativeController@publish')->middleware('admin');

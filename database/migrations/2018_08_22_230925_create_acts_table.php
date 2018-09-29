@@ -16,6 +16,7 @@ class CreateActsTable extends Migration
         Schema::create('acts', function (Blueprint $table) {
             $table->increments('id');
             $table->longText('content');
+            $table->integer('order');
             $table->integer('narrative_id');
             $table->integer('user_id');
             $table->integer('status')->default('0');;
