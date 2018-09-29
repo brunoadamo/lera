@@ -39,10 +39,20 @@ class ActController extends Controller
 
     public function status(Act $act, int $status)
     {
-        $act->status = $status;
-        $narrative_id = $act->narrative_id;
+        $act->status    = $status;
+        $narrative_id   = $act->narrative_id;
         $act->save();
         
+        $act_now_n     = (Act::where('narrative_id', $narrative_id)
+             ->where('status', 1)
+             ->count()) + 1;
+
+        $narrative      = Narrative::find($narrative_id);
+ 
+        //publish the narrative if all acts are filed
+        if($narrative->act_n == $act_now_n){
+            Narrative::where('id', $narrative_id)->update(['is_published' => 1]);
+        }
         //update all the others acts from this narrative = denied all others
         if($status == 1){
             Act::where('narrative_id', $narrative_id)

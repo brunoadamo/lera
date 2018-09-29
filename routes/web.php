@@ -54,7 +54,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 
 Route::get('/profile', 'ProfileController@index')->middleware('auth');
-Route::get('/portfolio', 'NarrativeController@portfolio');
+Route::get('/portfolio', 'PortfolioController@index');
 
 Auth::routes();
 

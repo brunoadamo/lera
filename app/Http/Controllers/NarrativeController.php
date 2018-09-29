@@ -19,34 +19,20 @@ class NarrativeController extends Controller
                         $search = $request->search;
 
                         return $query->where('title', 'like', "%$search%")
-                            ->orWhere('content', 'like', "%$search%");
+                            ->where('is_published', false)
+                            ->orWhere('content', 'like', "%$search%")
+                            ->where('is_published', false);
                     })->where('is_published', false)
                     ->with('rates', 'kind', 'user')
                     ->withCount('comments')
                     ->orderBy('created_at', 'desc')
                     ->paginate(5);
 
-        $kinds = Kind::all();
+        $kinds = Kind::pluck('title', 'id')->all();
 
         return view('pages.narratives', compact('narratives', 'kinds'));
     }
-    public function portfolio(Request $request)
-    {
-        $narratives = Narrative::when($request->search, function($query) use($request) {
-                        $search = $request->search;
-
-                        return $query->where('title', 'like', "%$search%")
-                            ->orWhere('content', 'like', "%$search%");
-                    })->where('is_published', true)
-                    ->with('rates', 'kind', 'user')
-                    ->withCount('comments')
-                    ->orderBy('created_at', 'desc')
-                    ->paginate(5);
-        
-        $kinds = Kind::all();
-
-        return view('pages.narratives', compact('narratives', 'kinds'));
-    }
+ 
 
     public function single(int $id, Request $request)
     {

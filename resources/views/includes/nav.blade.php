@@ -23,7 +23,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/portfolio">Portfólio</a>
                 </li>
+
+                @php
+                    /*
                 
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Temas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @foreach ($kinds as $kind)
+                    <a class="dropdown-item" href="#">{{$kind->title}}</a>
+                        @endforeach
+                    </div>
+                </li> */
+                @endphp
 
                 @if (Auth::guest())
                     <li class="nav-item">

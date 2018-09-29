@@ -35,11 +35,12 @@
                 
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <p>{!!$narrative->content!!}</p>
+                    @php ($count_act = 1)
                     @foreach ($narrative->acts as $act)
-
+                    @php ($count_act++)
                             <div class="card mb-4">
                                 <div class="card-header">
-                                    {{$act->order}} Ato
+                                    {{$count_act}}º Ato
                                 </div>
                                 <div class="card-body">
                                     <p class="blockquote mb-0">

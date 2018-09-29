@@ -15,16 +15,20 @@ class PortfolioController extends Controller
     {
         $narratives = Narrative::when($request->search, function($query) use($request) {
                         $search = $request->search;
-                        
+
                         return $query->where('title', 'like', "%$search%")
-                            ->orWhere('content', 'like', "%$search%");
+                            ->where('is_published', true)
+                            ->orWhere('content', 'like', "%$search%")
+                            ->where('is_published', true);
                     })->where('is_published', true)
                     ->with('rates', 'kind', 'user')
-                    ->withCount('acts')
                     ->withCount('comments')
-                    ->simplePaginate(5);
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(5);
+        
+        $kinds = Kind::pluck('title', 'id')->all();
 
-        return view('pages.portfolio', compact('narratives'));
+        return view('pages.portfolio', compact('narratives', 'kinds'));
     }
     
     public function single(Narrative $narrative)
