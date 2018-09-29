@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Narrative;
+use App\Kind;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -46,6 +47,8 @@ class HomeController extends Controller
         ->withCount('acts')
         ->withCount('comments')
         ->simplePaginate(8);
+
+        
 
         return view('pages.home', compact('narratives', 'narratives_full'));
     }

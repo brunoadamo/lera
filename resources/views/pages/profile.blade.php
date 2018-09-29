@@ -10,26 +10,29 @@
                 <div class="col-sm-12 pb-5">
                     <div class="row">
                                    
-                        <div class="col-md-4">
-                            <a href="#">
-                                <img class="img-fluid rounded mb-3 mb-md-0 img-thumbnail" src="{{{ asset(@Auth::user()->folder  . '' . @Auth::user()->picture)}}}" alt="">
-                            </a>
+                        <div class="col-md-4 mx-auto">
+                            <img class="img-fluid rounded mb-3 mb-md-0 img-thumbnail mx-auto d-block" src="{{{ asset(@Auth::user()->folder  . '' . @Auth::user()->picture)}}}" alt="">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-5 text-center">
                             <h2 class="cl-primary">
                                 {{Auth::user()->name}}
-                                <a href="{{ route('logout') }}" class="btn btn-danger btn-sm float-right font-weight-normal" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Sair </a>
-
-                                <a href="{{ url("/admin/users/" . Auth::user()->id . "/edit") }}" class="btn btn-info btn-sm float-right font-weight-normal mr-3"> Editar </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
+                                
                             
                             </h2>
-                            <small>{{Auth::user()->alias}}</small>
-                            <p>Narrativas: </p>
-                            <p>Colaborações: </p>
+                            <p><strong>Pseudônimo: </strong>{{Auth::user()->alias}}</p>
+                            <p><strong>E-mail: </strong>{{Auth::user()->email}}</p>
+                            <p><strong>Narrativas: </strong>{{count(Auth::user()->narratives)}}</p>
+                            <p><strong>Colaborações: </strong>{{count(Auth::user()->acts)}}</p>
+                        </div>
+                        <div class="col-md-3 ">
+
+                            <a href="{{ route('logout') }}" class="btn btn-danger btn-sm font-weight-normal mx-auto d-block" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Sair </a>
+
+                            <a href="{{ url("/admin/users/" . Auth::user()->id . "/edit") }}" class="btn btn-info btn-sm font-weight-normal mt-3 mx-auto d-block"> Editar </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -37,7 +40,14 @@
                
                 <div class="user-narratives col-sm-12 mx-auto">
 
-                    <h3 class="text-center">{{ __('Minhas Narrativas') }} - <a href="{{ url('admin/narratives/create') }}">Criar narrativa</a></h3><br>
+                    <h3 class="text-center pb-4">{{ __('Minhas Narrativas') }}</h3>
+                    
+                    <div class="row">
+                        <div class="col-sm-12 text-center center-block mx-auto pb-4">
+                            <a href="{{ url('admin/narratives/create') }}" class="btn btn-warning ">Criar narrativa</a>
+                        </div>
+                    </div>
+                    
 
                     <div class="row">
                     @forelse($narratives as $key => $narrative)
@@ -70,15 +80,20 @@
                                 <a href="/narrative/{{$narrative->id}}"><img class="card-img-top img-fluid" src="{{{ asset(@$narrative->folder  . '' . @$narrative->picture)}}}" alt=""></a>
                                 <div class="card-body">
                                     <h5>
-                                    <a href="#">{{$narrative->kind->title}}</a>
+                                    <a href="/narrative/{{$narrative->id}}">{{$narrative->title}}</a>
                                     </h5>
-                                    <p class="card-text">{{$narrative->title}}</p>
+                                    <p class="card-text">{{$narrative->kind->title}}</p>
                                 </div>
                             </div>
                         </div>
                         @empty
                         <div class="col-sm-12 mx-auto text-center p-4">
                             <p>Você ainda não colaborou com nenhuma narrativa =(</p>
+                            <div class="row">
+                                <div class="col-sm-12 text-center center-block mx-auto pb-4">
+                                    <a href="{{ url('/narratives') }}" class="btn btn-warning ">Comece agora!</a>
+                                </div>
+                            </div>
                         </div>
                     @endforelse
                     </div>

@@ -7,11 +7,9 @@
             <h1 class="text-center">{{ __('Cadastrar Narrativas') }}</h1>
 
             <div class="card-body">
-                <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}" enctype="multipart/form-data">
-                    @csrf
-                  
-                    @include('admin.narratives._form')
+                {!! Form::open(['url' => '/admin/narratives', 'enctype' => 'multipart/form-data', 'role' => 'form']) !!}
 
+                    @include('admin.narratives._form')
                     <div class="form-group row mb-0">
                         <div class="col-sm-12">
                             <button type="submit" class="btn btn-warning">
@@ -19,7 +17,9 @@
                             </button>
                         </div>
                     </div>
-                </form>
+
+                {!! Form::close() !!}
+                
             </div>
         </div>
     </div>

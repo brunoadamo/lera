@@ -18,6 +18,23 @@ class ActController extends Controller
         // $narrative = $narrative->load(['user', 'comments', 'rates', 'kind', 'acts']);
         return view('admin.acts.create', compact('narrative'));
     }
+    /**
+     * Show the form for updating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    protected function update(Request $data, Act $act)
+    {
+
+        $narrative_id = $act->narrative_id;
+        $act->update([
+            'content' => $data['content']           
+        ]);
+
+        return redirect('/narrative/' . $narrative_id);
+    }
+    
 
 
     public function status(Act $act, int $status)
@@ -44,5 +61,16 @@ class ActController extends Controller
 
         return redirect('/narrative/' . $narrative_id);
         
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Act $act, Narrative $narrative)
+    {
+        return view('admin.acts.edit', compact('act', 'narrative'));
     }
 }

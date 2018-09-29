@@ -16,7 +16,7 @@ class CreateNarrativesTable extends Migration
         Schema::create('narratives', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->longText('theme');
+            $table->longText('theme')->nullable();
             $table->integer('kind_id');
             $table->integer('act_n');
             $table->longText('clue');
@@ -25,7 +25,7 @@ class CreateNarrativesTable extends Migration
             $table->string('picture')->nullable();
             $table->integer('user_id');
             $table->integer('status')->default('1');
-            $table->boolean('is_published')->default('1');
+            $table->boolean('is_published')->default('0');
             $table->timestamps();
         });
     }

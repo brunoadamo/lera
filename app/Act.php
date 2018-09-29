@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Narrative;
+use App\User;
 
 class Act extends Model
 {
@@ -28,7 +30,7 @@ class Act extends Model
 
     public function narrative()
     {
-        return $this->belongsTo(Narrative::class);
+        return $this->hasOne(Narrative::class);
     }
 
     public function user()

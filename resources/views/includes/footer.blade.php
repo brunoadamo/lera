@@ -52,7 +52,7 @@
 
     $(".summernote").summernote({
         lang: "pt-BR",
-        height: 210,
+        height: 300,
         toolbar: [
         // [groupName, [list of button]]
         ['style', ['bold', 'italic', 'underline', 'clear']],

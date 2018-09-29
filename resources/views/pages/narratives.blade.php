@@ -9,6 +9,17 @@
 
                 <h1 class="text-center">{{ __('Narrativas') }}</h1><br>
 
+                <div class="col-sm-10 mx-auto">
+                    <div class="row">
+                        <div class="input-group mb-5">
+                            <input type="text" class="form-control" placeholder="Utilize esse campo para pesquisar..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button">Pesquisar</button>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+
                 @forelse($narratives as $key => $narrative)
                 <div class="row">
                     <div class="col-sm-10 mx-auto featured" style="background-image: url('{{{ asset(@$narrative->folder  . '' . @$narrative->picture)}}}')"> </div>
@@ -18,16 +29,11 @@
                                 <h2 class="post-title">
                                     {{$narrative->title}}
                                 </h2>
-                                <h3 class="post-subtitle">
-                                    {{$narrative->content}}
-                                </h3>
                             </a>
                             <p class="post-meta"><strong>{{$narrative->kind->title}}</strong> - Criado por
-                                <a href="#">{{$narrative->user->alias}}</a>
+                                <strong>{{$narrative->user->alias}}  </strong>
                                 em {{$narrative->created_at->format('d/m/Y')}}
-                            
-                                <small><strong> | Colaboradores:</strong> </small>    
-                                <small class="float-right"><strong>Comentários:</strong> {{ $narrative->comments_count }}</small>    
+                                
                             </p>
                             
                         </div>

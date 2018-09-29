@@ -5,6 +5,7 @@ namespace App;
 use App\Narrative;
 use App\Comment;
 use App\Rate;
+use App\Act;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -40,8 +41,13 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-    public function rates($query)
+    public function rates()
     {
         return $this->hasMany(Rate::class);
+    }
+    
+    public function acts()
+    {
+        return $this->hasMany(Act::class);
     }
 }
