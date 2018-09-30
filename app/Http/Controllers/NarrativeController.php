@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 use App\Narrative;
 use App\Kind;
 use App\User ;
@@ -11,6 +12,19 @@ use App\User ;
 
 class NarrativeController extends Controller
 {
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'picture' => 'max:5120|image',
+        ]);
+    }
 
     //fronend-------------------------
     public function index(Request $request)
