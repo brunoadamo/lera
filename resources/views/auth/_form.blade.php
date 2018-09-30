@@ -11,7 +11,7 @@
 
 <div class="form-group">
     <div class="form-group floating-label-form-group controls">
-        {!! Form::label('name', 'Nome', ['class' => 'col-md-2 control-label']) !!}
+        {!! Form::label('name', 'Nome', ['class' => 'col-md-12 control-label']) !!}
         {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nome', 'required', 'autofocus']) !!}
 
     </div>
@@ -22,7 +22,7 @@
 
 <div class="form-group">
     <div class="form-group floating-label-form-group controls">
-        {!! Form::label('name', 'Pseudônimo', ['class' => 'col-md-2 control-label']) !!}
+        {!! Form::label('name', 'Pseudônimo', ['class' => 'col-md-12 control-label']) !!}
         {!! Form::text('alias', null, ['class' => 'form-control', 'placeholder' => 'Pseudônimo', 'required', 'autofocus']) !!}
 
     </div>
@@ -32,7 +32,7 @@
 </div>
 <div class="form-group">
     <div class="form-group floating-label-form-group controls">
-        {!! Form::label('name', 'E-mail', ['class' => 'col-md-2 control-label']) !!}
+        {!! Form::label('name', 'E-mail', ['class' => 'col-md-12 control-label']) !!}
         {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'E-mail', 'required', 'autofocus']) !!}
 
     </div>
@@ -42,7 +42,7 @@
 </div>
 <div class="form-group">
     <div class="form-group floating-label-form-group controls">
-        {!! Form::label('name', 'Senha', ['class' => 'col-md-2 control-label']) !!}
+        {!! Form::label('name', 'Senha', ['class' => 'col-md-12 control-label']) !!}
         {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Senha', 'required', 'autofocus']) !!}
 
     </div>
@@ -52,7 +52,7 @@
 </div>
 <div class="form-group">
     <div class="form-group floating-label-form-group controls">
-        {!! Form::label('name', 'Confimar senha', ['class' => 'col-md-2 control-label']) !!}
+        {!! Form::label('name', 'Confimar senha', ['class' => 'col-md-12 control-label']) !!}
         {!! Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'Confimar senha', 'required', 'autofocus']) !!}
 
     </div>

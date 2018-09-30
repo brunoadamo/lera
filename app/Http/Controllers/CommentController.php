@@ -28,13 +28,14 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete(Comment $comment)
+    public function delete(int $id)
     {
         // if($comment->user_id != auth()->user()->id && auth()->user()->is_admin == false) {
         //     flash()->overlay("You can't delete other peoples comment.");
         //     return redirect('/admin/posts');
         // }
-
+        
+        $comment = Comment::find($id);
         $narrative_id = $comment->narrative_id;
 
         $comment->delete();
