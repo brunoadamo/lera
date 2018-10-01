@@ -37,8 +37,9 @@ class NarrativeController extends Controller
                             ->orWhere('content', 'like', "%$search%")
                             ->where('is_published', false);
                     })->where('is_published', false)
-                    ->with('rates', 'kind', 'user')
+                    ->with('rates', 'kind', 'user', 'acts')
                     ->withCount('comments')
+                    ->withCount('acts')
                     ->orderBy('created_at', 'desc')
                     ->paginate(5);
 
@@ -138,8 +139,9 @@ class NarrativeController extends Controller
 
     protected function store(Request $data){
 
-        $path       = 'uploads/narrative/cover/';
-        $file_name  = "example.jpg";
+        $path               = 'uploads/narrative/cover/';
+        $file_name          = "example.jpg";
+        $is_published       = 0;
         
         if(Input::hasFile('picture')){
 
@@ -153,6 +155,9 @@ class NarrativeController extends Controller
             }
         }
         
+        if($data['act_n'] == 1){
+            $is_published     = 1;
+        }
 
         Narrative::create([
             'title' => $data['title'],
@@ -164,6 +169,7 @@ class NarrativeController extends Controller
             'folder' => $path,
             'picture' => $file_name,
             'user_id' => auth()->user()->id,
+            'is_published' => $is_published,
             'status' => 1,
         ]);
         return redirect('/narratives');
@@ -178,8 +184,9 @@ class NarrativeController extends Controller
      */
     public function update(Request $data, Narrative $narrative){
 
-        $path       = 'uploads/narrative/cover/';
-        $file_name  = "example.jpg";
+        $path               = $narrative->folder;
+        $file_name          = $narrative->picture;
+        $is_published       = 0;
         
         if(Input::hasFile('picture')){
 
@@ -192,8 +199,11 @@ class NarrativeController extends Controller
                 Input::file('picture')->move($path_full, $file_name);
             }
         }
-        
 
+        if($data['act_n'] == 1){
+            $is_published     = 1;
+        }
+        
         $narrative->update([
             'title' => $data['title'],
             'theme' => $data['theme'],
@@ -203,6 +213,7 @@ class NarrativeController extends Controller
             'content' => $data['content'],
             'folder' => $path,
             'picture' => $file_name,
+            'is_published' => $is_published,
             'user_id' => auth()->user()->id,
             'status' => 1,
         ]);

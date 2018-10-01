@@ -53,8 +53,10 @@ class ActController extends Controller
         if($narrative->act_n == $act_now_n){
             Narrative::where('id', $narrative_id)->update(['is_published' => 1]);
         }
+        
         //update all the others acts from this narrative = denied all others
         if($status == 1){
+
             Act::where('narrative_id', $narrative_id)
                 ->where('status', 0)
                 ->update(['status' => 99]);

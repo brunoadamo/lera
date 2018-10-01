@@ -9,6 +9,7 @@
                         <small><strong>{{$narrative->kind->title}}</strong></small>
                     <h1>{{$narrative->title}}</h1>
                     <span class="subheading">{{$narrative->theme}}</span>
+                    <small><strong>Criado por {{$narrative->user->alias}}</strong></small>
                     
                 </div>
             </div>

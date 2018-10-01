@@ -9,7 +9,7 @@
             <h1 class="text-center md-10 mx-auto">{{ $narrative->title }}</h1>
 
             <div class="card-body">
-                {!! Form::model($narrative, ['method' => 'PUT', 'url' => "/admin/posts/{$narrative->id}", 'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
+                {!! Form::model($narrative, ['method' => 'PUT', 'url' => "/admin/narratives/{$narrative->id}", 'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
 
                     @include('admin.narratives._form')
 

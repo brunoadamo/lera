@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Narrative extends Model
 {
-    protected $fillable = ['title', 'theme', 'kind_id', 'act_n', 'clue', 'content', 'folder', 'picture', 'user_id', 'status'];
+    protected $fillable = ['title', 'theme', 'kind_id', 'act_n', 'clue', 'content', 'folder', 'picture', 'user_id', 'status', 'is_published'];
 
     protected static function boot()
     {

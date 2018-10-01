@@ -169,11 +169,13 @@
                                     </h5>
                                     {{ $comment->content }}
                                 </div>
-                                <div class="control-buttons pt-3">
+                                @if(Auth::user()->id == $comment->user->id)
+                                    <div class="control-buttons pt-3">
 
-                                    <a href="{{ url("/admin/comments/{$comment->id}") }}" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Deseja excluir?" class="text-danger">Delete</a>
+                                        <a href="{{ url("/admin/comments/{$comment->id}") }}" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Deseja excluir?" class="text-danger">Delete</a>
 
-                                </div>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>

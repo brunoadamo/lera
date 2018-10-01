@@ -28,8 +28,8 @@ class UserController extends Controller
      */
     protected function update(Request $data, User $user)
     {
-        $path       = 'uploads/user/profile/';
-        $file_name  = "user.png";
+        $path               = $user->folder;
+        $file_name          = $user->picture;
         
         if(Input::hasFile('picture')){
 

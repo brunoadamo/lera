@@ -11,7 +11,9 @@
                 <p class="post-meta"><strong>{{$narrative->kind->title}}</strong> - Criado por
                     <strong>{{$narrative->user->alias}}  </strong>
                     em {{$narrative->created_at->format('d/m/Y')}}
+
                     
+                    <small class="float-right">{{$narrative->acts_count}} / {{$narrative->act_n}} Atos</small>
                 </p>
                 
             </div>
