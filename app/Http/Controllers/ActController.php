@@ -85,4 +85,26 @@ class ActController extends Controller
     {
         return view('admin.acts.edit', compact('act', 'narrative'));
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(int $id)
+    {
+        // if($comment->user_id != auth()->user()->id && auth()->user()->is_admin == false) {
+        //     flash()->overlay("You can't delete other peoples comment.");
+        //     return redirect('/admin/posts');
+        // }
+        
+        $act = Act::find($id);
+        $narrative_id = $act->narrative_id;
+
+        $act->delete();
+        // flash()->overlay('Comment deleted successfully.');
+
+        return redirect('/narrative/' . $narrative_id);
+    }
 }

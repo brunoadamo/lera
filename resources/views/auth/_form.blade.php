@@ -1,7 +1,7 @@
 <div class="form-group">
     <div class="custom-file">
         <input type="file" class="custom-file-input" id="picture" name="picture">
-        <label class="custom-file-label" for="picture">Escolha sua foto...</label>
+        <label class="custom-file-label" for="picture">Escolha sua foto... Máx: 2MB</label>
     </div>
     @if ($errors->has('picture'))
         <p class="help-block text-danger">{{ $errors->first('picture') }}</p>

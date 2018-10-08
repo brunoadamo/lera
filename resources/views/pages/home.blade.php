@@ -75,11 +75,17 @@
 
                 <div class="">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus dui a placerat mollis. In finibus vehicula sagittis. Nam molestie, leo vitae consequat lobortis, diam orci pretium mi, eu rutrum ante ipsum id eros. Integer at magna nibh. Curabitur ornare faucibus mi, ac laoreet ipsum posuere a. Fusce blandit est id velit accumsan vehicula. Sed non pretium enim. Pellentesque condimentum faucibus varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium magna nec risus malesuada tempor. Duis consectetur feugiat lorem, id dapibus quam elementum a. Nullam eget iaculis sem. Praesent ultrices eros nec nunc congue fermentum. Fusce blandit nec lectus et consectetur. Vivamus ornare tellus sit amet nibh viverra porttitor. Fusce eget eros molestie dui ultrices luctus.
+                        O LERA é parte de um projeto de Trabalho de Graduação 2018 do curso Análise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de Indaiatuba (FATEC-ID). 
                     </p>
                     <p>
-                        Sed a mattis urna. Donec sollicitudin dolor sed ligula euismod, et accumsan ipsum commodo. Sed in lectus finibus, tincidunt velit eu, tincidunt magna. Morbi maximus est sed tellus commodo efficitur. Nullam eu libero hendrerit, ultricies dolor ac, egestas orci. In sit amet pellentesque mi. Praesent vestibulum laoreet nisi sit amet malesuada. Nunc vehicula porttitor augue, eu cursus mi ultrices a. Integer ut ullamcorper neque.
+                        O objetivo do LERA é incentivar as práticas de leitura e escrita, por meio de narrativas colaborativas.
+                        
                     </p>
+                    <p>Foram utilizados conceitos chave como: a importância da leitura, inclusão social, escrita e cidadania, e redes colaborativas, que sustentam a pesquisa os quais são ancorados em práticas de pesquisas apresentadas em um conjunto de trabalhos relacionados.</p>
+                    <p>Para conhecer mais sobre o trabalho clique <a href="">aqui</a></p>
+                    <p>Nos ajude avaliando essa aplicação, sua opinião vale muito =)</p>
+
+                    <a href="https://goo.gl/forms/VEIIpdGEoigrS03D2" class="btn btn-warning" target="_blank">Diga o que achou do LERA!</a>
                 </div>
             </div>
 

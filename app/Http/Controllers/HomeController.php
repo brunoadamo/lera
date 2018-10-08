@@ -46,7 +46,7 @@ class HomeController extends Controller
         ->with('rates', 'kind', 'user')
         ->withCount('acts')
         ->withCount('comments')
-        ->simplePaginate(8);
+        ->simplePaginate(6);
 
         
 

@@ -28,6 +28,15 @@ blockquote{
 }
 
 
+/* nav */
+
+#mainNav .navbar-nav>li.nav-item>a{
+    color:#fff !important;
+}
+#mainNav.is-fixed{
+    background: #000;
+}
+
 /* HOME */
 .homecontent a{
     color:#fff !important;

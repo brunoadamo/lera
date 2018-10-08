@@ -21,8 +21,9 @@ class PortfolioController extends Controller
                             ->orWhere('content', 'like', "%$search%")
                             ->where('is_published', true);
                     })->where('is_published', true)
-                    ->with('rates', 'kind', 'user')
+                    ->with('rates', 'kind', 'user', 'acts')
                     ->withCount('comments')
+                    ->withCount('acts')
                     ->orderBy('created_at', 'desc')
                     ->paginate(5);
         

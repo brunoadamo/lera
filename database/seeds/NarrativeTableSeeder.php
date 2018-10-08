@@ -23,7 +23,7 @@ class NarrativeTableSeeder extends Seeder
             Narrative::create([
                 'title' => $faker->sentence,
                 'theme' => $faker->sentence,
-                'kind_id' => rand(1, 20),
+                'kind_id' => rand(1, 17),
                 'act_n' => 3,
                 'clue' => $faker->sentence,
                 'content' => $faker->paragraph,

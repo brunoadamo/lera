@@ -21,11 +21,16 @@
                 <div class="row ">
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <div class="row ">
-                            <div class="col-sm-10 pb-2">
+                            <div class="col-sm-8 pb-2">
                             <h5>{{Auth::user()->alias}}! Você criou essa narrativa =)</h5>
                             </div>
                             <div class="col-sm-2">
                                 <a href="{{ url("/admin/narratives/" . $narrative->id . "/edit") }}" class="btn btn-info btn-sm float-right font-weight-normal mr-3"> Editar </a>
+                                
+                            </div>
+                            <div class="col-sm-2">
+                                <a href="{{ url("/admin/narratives/{$narrative->id}") }}" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Deseja excluir?" class="text-danger">Delete</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -88,9 +93,12 @@
                                 <div class="card mb-2">
                                     <div class="card-header">
                                         <ul class="nav nav-pills card-header-pills">
-                                            <li class="nav-item">
+                                            <li class="nav-item mr-2">
                                                
                                                 <a href="{{ url("/admin/acts/" .$act->id . "/edit/" . $narrative->id) }}" class="nav-link active btn-info"> Editar </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="{{ url("/admin/acts/{$act->id}") }}" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Deseja excluir?" class="text-danger">Delete</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -169,7 +177,7 @@
                                     </h5>
                                     {{ $comment->content }}
                                 </div>
-                                @if(Auth::user()->id == $comment->user->id)
+                                @if($user_id == $comment->user->id)
                                     <div class="control-buttons pt-3">
 
                                         <a href="{{ url("/admin/comments/{$comment->id}") }}" data-method="DELETE" data-token="{{ csrf_token() }}" data-confirm="Deseja excluir?" class="text-danger">Delete</a>

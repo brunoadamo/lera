@@ -221,4 +221,25 @@ class NarrativeController extends Controller
         return redirect('/narratives');
 
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(int $id)
+    {
+        // if($comment->user_id != auth()->user()->id && auth()->user()->is_admin == false) {
+        //     flash()->overlay("You can't delete other peoples comment.");
+        //     return redirect('/admin/posts');
+        // }
+        
+        $narrative        = Narrative::find($id);
+
+        $narrative->delete();
+        // flash()->overlay('narrative deleted successfully.');
+
+        return redirect('/profile');
+    }
 }

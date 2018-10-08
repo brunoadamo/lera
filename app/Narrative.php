@@ -24,7 +24,7 @@ class Narrative extends Model
 
         static::deleting(function ($narrative) {
             $narrative->comments()->delete();
-            $narrative->tags()->detach();
+            $narrative->acts()->delete();
         });
     }
 

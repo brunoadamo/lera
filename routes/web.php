@@ -48,7 +48,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::resource('/comments', 'CommentController', ['only' => ['delete']]);
     
     Route::put('/acts/{act}/status/{status}', 'ActController@status');
-    Route::delete('/comments/{act}', 'CommentController@delete');
+    Route::delete('/comments/{comment}', 'CommentController@delete');
+    Route::delete('/narratives/{narrative}', 'NarrativeController@delete');
+    Route::delete('/acts/{act}', 'ActController@delete');
     Route::get('/acts/{act}/edit/{narrative}', 'ActController@edit');
     // Route::put('/narratives/{narrative}/publish', 'NarrativeController@publish')->middleware('admin');
 });

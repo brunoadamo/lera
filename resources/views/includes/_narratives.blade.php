@@ -13,7 +13,7 @@
                     em {{$narrative->created_at->format('d/m/Y')}}
 
                     
-                    <small class="float-right">{{$narrative->acts_count}} / {{$narrative->act_n}} Atos</small>
+                    <small class="float-right">{{$narrative->acts_count + 1}} / {{$narrative->act_n}} Atos</small>
                 </p>
                 
             </div>

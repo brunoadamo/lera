@@ -43,16 +43,16 @@ class UserTableSeeder extends Seeder
         ]);
 
         // And now let's generate a few dozen users for our app:
-        for ($i = 0; $i < 1; $i++) {
-            User::create([
-                'name' => $faker->name,
-                'email' => $faker->email,
-                'password' => $password,
-                'folder' => 'uploads/user/profile/',
-                'picture' => 'user.png',
-                'alias' => $faker->name,
-                'status' => 1,
-            ]);
-        }
+        // for ($i = 0; $i < 1; $i++) {
+        //     User::create([
+        //         'name' => $faker->name,
+        //         'email' => $faker->email,
+        //         'password' => $password,
+        //         'folder' => 'uploads/user/profile/',
+        //         'picture' => 'user.png',
+        //         'alias' => $faker->name,
+        //         'status' => 1,
+        //     ]);
+        // }
     }
 }
