@@ -36,6 +36,11 @@ class NarrativeController extends Controller
                             ->where('is_published', false)
                             ->orWhere('content', 'like', "%$search%")
                             ->where('is_published', false);
+                    })->when($request->kind_id, function($query) use($request) {
+                        $kind_id = $request->kind_id;
+
+                        return $query->where('kind_id', $kind_id)
+                            ->where('is_published', false);
                     })->where('is_published', false)
                     ->with('rates', 'kind', 'user', 'acts')
                     ->withCount('comments')
@@ -43,7 +48,7 @@ class NarrativeController extends Controller
                     ->orderBy('created_at', 'desc')
                     ->paginate(5);
 
-        $kinds = Kind::pluck('title', 'id')->all();
+        $kinds      = Kind::pluck('title', 'id')->all();
 
         return view('pages.narratives', compact('narratives', 'kinds'));
     }

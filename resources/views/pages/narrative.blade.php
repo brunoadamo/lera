@@ -175,7 +175,7 @@
                                         <small class="float-right">{{ $comment->created_at->format('d/m/Y')}}</small>
 
                                     </h5>
-                                    {{ $comment->content }}
+                                    {!! $comment->content !!}
                                 </div>
                                 @if($user_id == $comment->user->id)
                                     <div class="control-buttons pt-3">

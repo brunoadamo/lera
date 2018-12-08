@@ -43,6 +43,9 @@
     .contenthead{
         min-height: 65px;
     }
+    #mainNav .navbar-nav>li.nav-item>a{
+    	color:#fff !important;
+    }
 }
 @media only screen and (min-width: 1382px) { 
 

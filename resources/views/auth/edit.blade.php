@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h1 class="text-center">{{ __('Cadastrar usuário') }}</h1>
+            <h1 class="text-center">{{ __('Editar usuário') }}</h1>
 
             <div class="card-body">
                 {!! Form::model($user, ['method' => 'PUT', 'url' => "/admin/users/{$user->id}", 'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data']) !!}
@@ -23,7 +23,7 @@
 
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-warning">
-                                {{ __('Cadastrar') }}
+                                {{ __('Atualizar') }}
                             </button>
                         </div>
                     </div>

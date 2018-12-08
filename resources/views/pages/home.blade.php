@@ -15,7 +15,7 @@
                             <div class="col-sm-12 mx-auto featured" style="background-image: url('{{{ asset(@$narrative->folder  . '' . @$narrative->picture)}}}')"> </div>
                             <div class="card-body mx-auto text-center">
                                 <p class="card-text"><a href="/narrative/{{$narrative->id}}">{{$narrative->title}}</a></p>
-                                <small> <strong>{{$narrative->kind->title}}</strong> - {{$narrative->acts_count}} / {{$narrative->act_n}} Atos </small>
+                                <small> <strong>{{$narrative->kind->title}}</strong><?php /* - {{$narrative->acts_count}} / {{$narrative->act_n}} Atos*/?> </small>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,6 @@
                 </div>
                 </div>
             </div>
-            
 
             <div class="col-sm-12 col-lg-3 pt-3 pb-3 side-card">
                 <h6 class="mb-2 text-left">Conheça algumas narrativas...</h6>
@@ -44,6 +43,11 @@
                         <div class="d-flex w-100 justify-content-between">
                             <h6 class="mb-1">{{$narrative_full->title}}</h6>
                         </div>
+                        <?php 
+                        /*
+                        <p class="mb-1">{{$narrative_full->theme}}</p>
+                        */
+                        ?>
                         <small>{{$narrative_full->kind->title}}</small>
                     </a>
                     @empty

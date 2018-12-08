@@ -20,6 +20,11 @@ class PortfolioController extends Controller
                             ->where('is_published', true)
                             ->orWhere('content', 'like', "%$search%")
                             ->where('is_published', true);
+                    })->when($request->kind_id, function($query) use($request) {
+                        $kind_id = $request->kind_id;
+
+                        return $query->where('kind_id', $kind_id)
+                            ->where('is_published', true);
                     })->where('is_published', true)
                     ->with('rates', 'kind', 'user', 'acts')
                     ->withCount('comments')

@@ -47,6 +47,11 @@
                     <a class="nav-link" href="/portfolio">Portfólio</a>
 
                 </li>
+                <li class="nav-item">
+
+                    <a class="nav-link" href="{{ url('admin/narratives/create') }}" style="color: #ffb007 !important;">Criar narrativa</a></a>
+
+                </li>
 
 
 
