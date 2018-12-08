@@ -5,10 +5,11 @@
 <div class="post-list post-list-home">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-lg-9 pt-3 pb-3 d-none d-sm-none d-md-block">
+            <div class="col-sm-12 col-lg-9 pt-3 pb-3">
                 <h3 class="mb-3">COLABORE CONOSCO!</h3>
                 <div class="row">
                 @forelse($narratives as $key => $narrative)
+                <a href="/narrative/{{$narrative->id}}">
                     <div class="col-lg-4 col-md-6 col-sm-6 portfolio-item">
                         <div class="card">
                             <div class="col-sm-12 mx-auto featured" style="background-image: url('{{{ asset(@$narrative->folder  . '' . @$narrative->picture)}}}')"> </div>
@@ -18,11 +19,11 @@
                             </div>
                         </div>
                     </div>
+                </a>
                 @empty
-                    <div class="row">
-                        <div class="col-sm-12 mx-auto">
-                            <p>Nenhuma narrativa cadastrada</p>
-                        </div>
+                    <div class="col-sm-12 mx-auto">
+                        <a href="{{ url('admin/narratives/create') }}" class="btn btn-info ">Criar narrativa</a>
+                        <p>Nenhuma narrativa cadastrada</p>
                     </div>
                 @endforelse
                 <div class="col-sm-12 mt-3">
@@ -33,7 +34,7 @@
             
 
             <div class="col-sm-12 col-lg-3 pt-3 pb-3 side-card">
-                <h4 class="mb-2 text-left">Conheça algumas narrativas...</h4>
+                <h6 class="mb-2 text-left">Conheça algumas narrativas...</h6>
                 <hr>
                 <div class="list-group">
                     @forelse($narratives_full as $key => $narrative_full)
@@ -43,12 +44,12 @@
                         <div class="d-flex w-100 justify-content-between">
                             <h6 class="mb-1">{{$narrative_full->title}}</h6>
                         </div>
-                        <p class="mb-1">{{$narrative_full->theme}}</p>
                         <small>{{$narrative_full->kind->title}}</small>
                     </a>
                     @empty
                         <div class="row">
-                            <div class="col-sm-12 mx-auto">
+                            <div class="col-sm-12 mx-auto text-center">
+                                <a href="{{ url('admin/narratives/create') }}" class="btn btn-info ">Criar narrativa</a>
                                 <p>Nenhuma narrativa cadastrada</p>
                             </div>
                         </div>
@@ -75,7 +76,7 @@
 
                 <div class="">
                     <p>
-                        O LERA é parte de um projeto de Trabalho de Graduação 2018 do curso Análise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de Indaiatuba (FATEC-ID). 
+                        O LERA é parte do meu (Bruno de Araujo Adamo) projeto de Trabalho de Graduação 2018 do curso Análise e Desenvolvimento de Sistemas da Faculdade de Tecnologia de Indaiatuba (FATEC-ID) orientado pelo Profº Dr. Aldo Pontes. 
                     </p>
                     <p>
                         O objetivo do LERA é incentivar as práticas de leitura e escrita, por meio de narrativas colaborativas.

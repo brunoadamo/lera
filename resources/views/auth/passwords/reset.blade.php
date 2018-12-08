@@ -40,7 +40,7 @@
                         <div class="form-group floating-label-form-group controls">
                             <label for="password-confirm">{{ __('Confirmar senha') }}</label>
 
-                            <input id="password-confirm" type="password" placeholder="{{ __('Senha') }}" class="form-control{{ $errors->has('password-confirm') ? ' is-invalid' : '' }}" name="password-confirm" value="{{ old('password-confirm') }}" required autofocus>
+                            <input id="password-confirm" type="password" placeholder="{{ __('Senha') }}" class="form-control{{ $errors->has('password-confirm') ? ' is-invalid' : '' }}" name="password_confirmation" value="{{ old('password-confirm') }}" required autofocus>
 
                             
                         </div>
