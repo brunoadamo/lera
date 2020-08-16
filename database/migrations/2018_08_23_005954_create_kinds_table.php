@@ -16,7 +16,7 @@ class CreateKindsTable extends Migration
         Schema::create('kinds', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->integer('status');
+            $table->integer('status')->default('1');;
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@ class CreateRatesTable extends Migration
             $table->integer('votes');
             $table->integer('narrative_id');
             $table->integer('user_id');
-            $table->integer('status');
+            $table->integer('status')->default('1');;
             $table->timestamps();
         });
     }

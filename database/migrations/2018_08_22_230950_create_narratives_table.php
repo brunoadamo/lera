@@ -21,8 +21,10 @@ class CreateNarrativesTable extends Migration
             $table->integer('act_n');
             $table->longText('clue');
             $table->longText('content');
+            $table->string('picture');
             $table->integer('user_id');
-            $table->integer('status');
+            $table->integer('status')->default('1');;
+            $table->boolean('is_published')->default('1');
             $table->timestamps();
         });
     }

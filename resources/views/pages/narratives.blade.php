@@ -7,12 +7,14 @@
         <div class="row">
             <div class="col-sm-12 mx-auto">
 
-                @foreach($narratives as $key => $narrative)
+                <h1 class="text-center">{{ __('Narrativas') }}</h1><br>
+
+                @forelse($narratives as $key => $narrative)
                 <div class="row">
-                    <div class="col-sm-4 featured" style="background-image: url('{{{ URL::asset('image/banner/2.jpg')}}}')"> </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-10 mx-auto featured" style="background-image: url('{{{ URL::asset('image/banner/2.jpg')}}}')"> </div>
+                    <div class="col-sm-10 mx-auto">
                         <div class="post-preview">
-                            <a href="post.html">
+                            <a href="/narrative/{{$narrative->id}}">
                                 <h2 class="post-title">
                                     {{$narrative->title}}
                                 </h2>
@@ -22,13 +24,19 @@
                             </a>
                             <p class="post-meta">Criado por
                                 <a href="#">{{$narrative->alias}}</a>
-                                on September 24, 2018</p>
+                                em {{$narrative->created_at->format('d')}}/{{$narrative->created_at->format('m')}}/{{$narrative->created_at->format('Y')}}</p>
                         </div>
                     </div>
                         
                 </div>
                 <hr>
-                @endforeach
+                @empty
+                    <div class="row">
+                        <div class="col-sm-12 mx-auto">
+                            <p>Nenhuma narrativa cadastrada</p>
+                        </div>
+                    </div>
+                @endforelse
                 
                 <!-- Pager -->
                 <div class="clearfix">

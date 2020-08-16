@@ -2,6 +2,9 @@
 
 namespace App;
 
+use App\Narrative;
+use App\Comment;
+use App\Rate;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -26,4 +29,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function narratives()
+    {
+        return $this->hasMany(Narrative::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function rates($query)
+    {
+        return $this->hasMany(Rate::class);
+    }
 }
